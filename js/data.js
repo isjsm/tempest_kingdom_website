@@ -1,6 +1,9 @@
-[
+// js/data.js
+// هذا الملف يحتوي على بيانات المؤسسين بصيغة JSON داخل متغير
+
+const foundersData = [
   {
-    "image": "https://i.postimg.cc/3xc0Tj9r/2025-10-12-17-34-09-41c8bc5c.jpg",
+    "image": "https://i.postimg.cc/W14Cg9t5/founder-itachi.jpg",
     "title": "الامبراطور المؤسس",
     "name": "ايتاشي",
     "description": "المؤسس الاول و الامبراطور الاول للمملكة"
@@ -17,4 +20,5 @@
     "name": "دراغون",
     "description": "احد مؤسسي نظام مملكة تيمبست و صلاحياته تكافئ صلاحيات الامبراطور"
   }
-]
+];
+v
