@@ -135,3 +135,35 @@
         font-size: 1.2rem;
     }
 }
+
+/* css/rules.css */
+
+/* ... (كل أكواد تصميم صفحة القوانين السابقة تبقى كما هي) ... */
+
+
+/* --- تصميم خاص لزر القائمة في صفحة القوانين --- */
+.rules-menu-btn {
+    background: linear-gradient(to bottom, #f0f0f0, #dcdcdc); /* تدرج لوني من الأبيض إلى الرمادي الفاتح */
+    color: #333; /* لون الأيقونة (الخطوط) بالأسود الداكن */
+    border-radius: 8px 0 0 8px; /* حواف دائرية من اليسار فقط */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+    position: relative; /* ضروري لإضافة الخط الأصفر */
+}
+
+/* تأثير عند مرور الفأرة */
+.rules-menu-btn:hover {
+    background: #ffffff; /* يصبح أبيض بالكامل عند المرور */
+    transform: scale(1.1); /* نفس التأثير السابق */
+}
+
+/* إضافة الخط الأصفر العمودي بجانب الزر */
+.rules-menu-btn::after {
+    content: ''; /* ضروري لإنشاء العنصر الزائف */
+    position: absolute;
+    top: 0;
+    right: -4px; /* يضع الخط خارج حدود الزر إلى اليمين */
+    width: 4px; /* عرض الخط */
+    height: 100%; /* بنفس ارتفاع الزر */
+    background-color: #FFD60A; /* اللون الأصفر الذهبي */
+    border-radius: 0 2px 2px 0; /* حواف دائرية خفيفة للخط */
+}
