@@ -1,0 +1,36 @@
+/* responsive.css */
+
+/* --- شاشات الكمبيوتر (أكبر من 768px) --- */
+@media (min-width: 769px) {
+    .open-btn {
+        display: block; /* إظهار زر فتح القائمة */
+    }
+    .mobile-nav {
+        display: none; /* إخفاء أزرار الجوال */
+    }
+    /* تأثير دفع المحتوى عند فتح القائمة */
+    body.sidebar-open {
+        margin-right: 250px;
+    }
+    /* تأثير تعتيم المحتوى */
+    body.sidebar-open .main-content {
+        filter: brightness(0.5);
+    }
+}
+
+/* --- شاشات الجوال (أصغر من 768px) --- */
+@media (max-width: 768px) {
+    .sidebar, .open-btn {
+        display: none; /* إخفاء القائمة الجانبية وزر الفتح */
+    }
+    .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+    header h1 {
+        font-size: 2.4rem;
+    }
+}
