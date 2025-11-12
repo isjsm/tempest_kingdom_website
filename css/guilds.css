@@ -1,0 +1,106 @@
+/* css/guilds.css */
+
+/* تصميم هيدر الصفحة */
+.page-header {
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    color: #FFD60A;
+    font-size: 2.8rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+/* حاوية بطاقات النقابات */
+.guilds-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* تصميم بطاقة النقابة */
+.guild-card {
+    background: linear-gradient(145deg, #2a2a2e, #1e1e21);
+    border-radius: 15px;
+    border: 1px solid #FFD60A;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guild-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 214, 10, 0.2);
+}
+
+/* رأس البطاقة (الاسم والشعار) */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 214, 10, 0.3);
+    padding-bottom: 15px;
+}
+
+.guild-card .guild-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.guild-card .guild-icon {
+    font-size: 2.5rem;
+    color: #FFD60A;
+    opacity: 0.8;
+}
+
+/* جسم البطاقة (المعلومات) */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* مسافة بين المعلومات */
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+}
+
+.info-item i {
+    color: #FFD60A;
+    font-size: 1.2rem;
+    width: 20px; /* لتوحيد المسافات */
+}
+
+.info-item .label {
+    color: #aaa;
+}
+
+.info-item .value {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* تأثير زخرفي في الخلفية */
+.guild-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 214, 10, 0.1) 0%, rgba(255, 214, 10, 0) 70%);
+    transition: transform 0.5s ease;
+}
+
+.guild-card:hover::before {
+    transform: scale(1.5);
+}
