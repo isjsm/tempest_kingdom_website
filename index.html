@@ -3,36 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مملكة Tempest</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- مكتبة أيقونات Font Awesome (لإظهار الأيقونات بجانب النصوص) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Tempest Kingdom</title>
+    
+    <!-- ملفات CSS المقسمة -->
+    <link rel="stylesheet" href="css/base.css">      <!-- الأساسيات والتخطيط العام -->
+    <link rel="stylesheet" href="css/sidebar.css">   <!-- تصميم القائمة الجانبية -->
+    <link rel="stylesheet" href="css/components.css"> <!-- تصميم المكونات (أزرار، فواصل) -->
+    <link rel="stylesheet" href="css/responsive.css"> <!-- التجاوب مع الشاشات -->
+
+    <!-- مكتبة أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <div class="container">
+    <!-- 1. القائمة الجانبية (Sidebar ) -->
+    <nav class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <a href="#"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
+        <a href="#"><i class="fa-solid fa-trophy"></i> انجازاتنا</a>
+        <a href="#"><i class="fa-solid fa-gavel"></i> القوانين</a>
+        <a href="#"><i class="fa-solid fa-user-shield"></i> المسؤولين</a>
+        <a href="#"><i class="fa-solid fa-chart-simple"></i> الاحصائيات</a>
+    </nav>
+
+    <!-- 2. المحتوى الرئيسي للصفحة -->
+    <div class="main-content" id="main-content">
+        <!-- زر فتح القائمة (Hamburger Menu) -->
+        <button class="open-btn" id="open-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
         <header>
             <h1>Tempest Kingdom</h1>
-            <p>مملكتنا ليست مجرد مملكة بل هي مكان يجتمع فيه مختلف الاشخاص من هواة الانميات وقد تشكل مجموعه بما يعرف حاليا ب اسم مملكة</p>
+            <p>مملكتنا ليست مجرد مملكة بل هي مكان يجتمع فيه مختلف الاشخاص من هواة الانميات وقد تتشكل مجموعه بما يعرف حاليا ب اسم مملكة</p>
         </header>
 
-        <nav>
-            <a href="#" class="nav-button"><i class="fa-solid fa-users"></i> نقاباتنا</a>
+        <!-- الأزرار التي تظهر في نسخة الجوال فقط -->
+        <div class="mobile-nav">
+            <a href="#" class="nav-button"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
             <a href="#" class="nav-button"><i class="fa-solid fa-trophy"></i> انجازاتنا</a>
-            <a href="#" class="nav-button"><i class="fa-solid fa-gavel"></i>القوانين</a>
-            <a href="#" class="nav-button"><i class="fa-solid fa-tags"></i> المسؤولين</a>
-            <a href="#" class="nav-button"><i class="fa-solid fa-store"></i> الاحصائيات</a>
-        </nav>
+            <a href="#" class="nav-button"><i class="fa-solid fa-gavel"></i> القوانين</a>
+            <a href="#" class="nav-button"><i class="fa-solid fa-user-shield"></i> المسؤولين</a>
+            <a href="#" class="nav-button"><i class="fa-solid fa-chart-simple"></i> الاحصائيات</a>
+        </div>
 
         <main>
             <hr class="separator">
             <section class="about">
-                <h2>مقدمة عن مملكة تيمبست <span class="sparkle">🪭</span></h2>
+                <h2>مقدمة عن مملكة تيمبست <i class="fa-solid fa-wand-magic-sparkles"></i></h2>
                 <p>
-كان بداية مملڪة Tempest 🪭 بأنشاء نقابة تدعى سيكي في 2025 تم انشائها من قبل ايتاشي و بضعة مؤسسين من مملكة غريفين ثم استقلو و اصبحو مملكه مستقله بسبب غدر مملكة غريفين بهم و ب الشوغن أي الجنرل الحالي للمملكة و مؤسس النظام الأول العريق                </p>
+                    كان بناء مملكة Tempest <i class="fa-brands fa-d-and-d"></i> بإنشاء نقابة تدعى سيكي في 2025 تم انشائها من قبل إيتاتشي و بضعة مؤسسين من مملكة غريفين. تم استكمال و اصبحت مملكه سكاكيه بسبب غدر مملكة غريفين بهم و ب النهوض أتى الجنرال الحالي للمملكة و مؤسس للنظام الأول العريق.
+                </p>
             </section>
         </main>
     </div>
+
+    <!-- 3. ملف JavaScript لتفعيل القائمة -->
+    <script src="script.js"></script>
 
 </body>
 </html>
