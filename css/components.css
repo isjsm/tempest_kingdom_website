@@ -1,0 +1,45 @@
+/* components.css */
+.separator {
+    border: none;
+    height: 2px;
+    background-color: #FFD60A;
+    width: 100%;
+    margin: 40px 0;
+    box-shadow: 0 0 10px rgba(255, 214, 10, 0.5);
+}
+
+.open-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #FFD60A;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 999;
+    display: none; /* يظهر فقط في نسخة الكمبيوتر */
+}
+
+.nav-button {
+    background-color: #FFD60A;
+    color: #121212;
+    border: none;
+    border-radius: 12px; /* حواف أكثر دائرية */
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.nav-button i {
+    font-size: 1.1rem;
+}
