@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tempest Kingdom</title>
     
-    <!-- ملفات CSS المقسمة -->
+    <!-- ملفات CSS من مجلد /css -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/components.css">
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <!-- 1. القائمة الجانبية (Sidebar ) - تعمل على كل الأجهزة -->
+    <!-- القائمة الجانبية (Sidebar ) -->
     <nav class="sidebar" id="sidebar">
         <button class="close-btn" id="close-btn">&times;</button>
         <a href="#"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
@@ -25,12 +25,12 @@
         <a href="#"><i class="fa-solid fa-chart-simple"></i> الاحصائيات</a>
     </nav>
 
-    <!-- 2. زر فتح القائمة (Hamburger Menu) - يظهر دائماً -->
+    <!-- زر فتح القائمة -->
     <button class="open-btn" id="open-btn">
         <i class="fa-solid fa-bars"></i>
     </button>
 
-    <!-- 3. المحتوى الرئيسي للصفحة -->
+    <!-- المحتوى الرئيسي للصفحة -->
     <div class="main-content" id="main-content">
         <header>
             <h1>Tempest Kingdom</h1>
@@ -45,10 +45,17 @@
                     كان بناء مملكة Tempest <i class="fa-brands fa-d-and-d"></i> بإنشاء نقابة تدعى سيكي في 2025 تم انشائها من قبل إيتاتشي و بضعة مؤسسين من مملكة غريفين. تم استكمال و اصبحت مملكه سكاكيه بسبب غدر مملكة غريفين بهم و ب النهوض أتى الجنرال الحالي للمملكة و مؤسس للنظام الأول العريق.
                 </p>
             </section>
+
+            <!-- قسم المؤسسين (سيتم ملؤه بواسطة JavaScript) -->
+            <section class="founders-section">
+                <hr class="separator">
+                <div class="founders-grid" id="founders-grid"></div>
+            </section>
         </main>
     </div>
 
-    <!-- 4. ملف JavaScript لتفعيل القائمة -->
+    <!-- ملفات JavaScript من مجلد /js -->
+    <script src="js/data.js"></script>
     <script src="js/script.js"></script>
 
 </body>
