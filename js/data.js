@@ -21,36 +21,29 @@ const foundersData = [
     "description": "احد مؤسسي نظام مملكة تيمبست و صلاحياته تكافئ صلاحيات الامبراطور"
   }
 ];
-// ==== بيانات النقابات الجديدة ====
+
+// ==== بيانات النقابات المحدثة ====
 const guildsData = [
   {
-    "name": "سيلفا",
-    "icon": "fa-solid fa-spider", // أيقونة من Font Awesome
-    "ruler": "ايتاشي",
-    "members": 150
+    "name": "SEKKY",
+    "logo": "https://i.postimg.cc/1X7wzWz4/sekky-logo.jpg", // صورة البروفايل
+    "symbol": "♦️", // الرمز بجانب الاسم
+    "ruler": "ايتاتشي", // الحاكم (من المعلومات السابقة )
+    "members": 86
   },
   {
-    "name": "قوتاي",
-    "icon": "fa-solid fa-leaf", // أيقونة من Font Awesome
-    "ruler": "ناغومو",
-    "members": 125
+    "name": "REVEN",
+    "logo": "https://i.postimg.cc/L8yQJgXQ/reven-logo.jpg", // صورة البروفايل
+    "symbol": "🐉", // الرمز بجانب الاسم
+    "ruler": "كيم ريفين",
+    "members": 38
   },
   {
-    "name": "ايسبادا",
-    "icon": "fa-solid fa-skull-crossbones", // أيقونة من Font Awesome
-    "ruler": "دراغون",
-    "members": 110
-  },
-  {
-    "name": "الهوكاجي",
-    "icon": "fa-solid fa-fire", // أيقونة من Font Awesome
-    "ruler": "اوبيتو",
-    "members": 95
-  },
-  {
-    "name": "اليونكو",
-    "icon": "fa-solid fa-anchor", // أيقونة من Font Awesome
-    "ruler": "لوفي",
-    "members": 200
+    "name": "Viland",
+    "logo": "https://i.postimg.cc/t4G2YvjH/viland-logo.jpg", // صورة البروفايل
+    "symbol": "☾", // الرمز بجانب الاسم
+    "ruler": "كيلوا",
+    "members": 24
   }
+  // يمكنك إضافة المزيد من النقابات هنا بنفس الطريقة
 ];
