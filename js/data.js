@@ -3,7 +3,7 @@
 
 const foundersData = [
   {
-    "image": "https://i.postimg.cc/W14Cg9t5/founder-itachi.jpg",
+    "image": "https://i.postimg.cc/3xc0Tj9r/2025-10-12-17-34-09-41c8bc5c.jpg",
     "title": "الامبراطور المؤسس",
     "name": "ايتاشي",
     "description": "المؤسس الاول و الامبراطور الاول للمملكة"
