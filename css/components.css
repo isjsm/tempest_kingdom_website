@@ -8,6 +8,7 @@
     box-shadow: 0 0 10px rgba(255, 214, 10, 0.5);
 }
 
+/* تصميم زر القائمة الموحد */
 .open-btn {
     position: fixed;
     top: 20px;
@@ -15,31 +16,18 @@
     background: #FFD60A;
     color: #121212;
     border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 1.2rem;
+    border-radius: 8px; /* نفس دائرية الأزرار القديمة */
+    width: 50px;
+    height: 45px;
+    font-size: 1.4rem;
     cursor: pointer;
     z-index: 999;
-    display: none; /* يظهر فقط في نسخة الكمبيوتر */
-}
-
-.nav-button {
-    background-color: #FFD60A;
-    color: #121212;
-    border: none;
-    border-radius: 12px; /* حواف أكثر دائرية */
-    padding: 12px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    width: 90%;
-    margin-bottom: 10px;
+    transition: transform 0.3s ease;
 }
 
-.nav-button i {
-    font-size: 1.1rem;
+.open-btn:hover {
+    transform: scale(1.1); /* تكبير بسيط عند المرور */
 }
