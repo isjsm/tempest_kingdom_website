@@ -31,3 +31,59 @@
 .open-btn:hover {
     transform: scale(1.1); /* تكبير بسيط عند المرور */
 }
+
+/* --- تصميم قسم المؤسسين --- */
+.founders-section {
+    padding: 20px 0;
+}
+
+.founders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* تصميم شبكي متجاوب */
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.founder-card {
+    background-color: rgba(45, 52, 64, 0.7); /* لون الخلفية الشفاف */
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* تأثير الزجاج المصنفر */
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.founder-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.founder-card .profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #FFD60A;
+    margin-bottom: 20px;
+}
+
+.founder-card .title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+.founder-card .name {
+    font-size: 1.2rem;
+    color: #FFD60A;
+    margin: 5px 0 15px 0;
+}
+
+.founder-card .description {
+    font-size: 0.95rem;
+    color: #cccccc;
+    line-height: 1.5;
+}
