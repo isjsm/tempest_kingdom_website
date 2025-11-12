@@ -6,17 +6,16 @@
     <title>Tempest Kingdom</title>
     
     <!-- ملفات CSS المقسمة -->
-    <link rel="stylesheet" href="css/base.css">      <!-- الأساسيات والتخطيط العام -->
-    <link rel="stylesheet" href="css/sidebar.css">   <!-- تصميم القائمة الجانبية -->
-    <link rel="stylesheet" href="css/components.css"> <!-- تصميم المكونات (أزرار، فواصل) -->
-    <link rel="stylesheet" href="css/responsive.css"> <!-- التجاوب مع الشاشات -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/components.css">
 
     <!-- مكتبة أيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- 1. القائمة الجانبية (Sidebar ) -->
+    <!-- 1. القائمة الجانبية (Sidebar ) - تعمل على كل الأجهزة -->
     <nav class="sidebar" id="sidebar">
         <button class="close-btn" id="close-btn">&times;</button>
         <a href="#"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
@@ -26,26 +25,17 @@
         <a href="#"><i class="fa-solid fa-chart-simple"></i> الاحصائيات</a>
     </nav>
 
-    <!-- 2. المحتوى الرئيسي للصفحة -->
-    <div class="main-content" id="main-content">
-        <!-- زر فتح القائمة (Hamburger Menu) -->
-        <button class="open-btn" id="open-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+    <!-- 2. زر فتح القائمة (Hamburger Menu) - يظهر دائماً -->
+    <button class="open-btn" id="open-btn">
+        <i class="fa-solid fa-bars"></i>
+    </button>
 
+    <!-- 3. المحتوى الرئيسي للصفحة -->
+    <div class="main-content" id="main-content">
         <header>
             <h1>Tempest Kingdom</h1>
             <p>مملكتنا ليست مجرد مملكة بل هي مكان يجتمع فيه مختلف الاشخاص من هواة الانميات وقد تتشكل مجموعه بما يعرف حاليا ب اسم مملكة</p>
         </header>
-
-        <!-- الأزرار التي تظهر في نسخة الجوال فقط -->
-        <div class="mobile-nav">
-            <a href="#" class="nav-button"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
-            <a href="#" class="nav-button"><i class="fa-solid fa-trophy"></i> انجازاتنا</a>
-            <a href="#" class="nav-button"><i class="fa-solid fa-gavel"></i> القوانين</a>
-            <a href="#" class="nav-button"><i class="fa-solid fa-user-shield"></i> المسؤولين</a>
-            <a href="#" class="nav-button"><i class="fa-solid fa-chart-simple"></i> الاحصائيات</a>
-        </div>
 
         <main>
             <hr class="separator">
@@ -58,7 +48,7 @@
         </main>
     </div>
 
-    <!-- 3. ملف JavaScript لتفعيل القائمة -->
+    <!-- 4. ملف JavaScript لتفعيل القائمة -->
     <script src="js/script.js"></script>
 
 </body>
