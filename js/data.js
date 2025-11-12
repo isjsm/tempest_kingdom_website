@@ -21,3 +21,36 @@ const foundersData = [
     "description": "احد مؤسسي نظام مملكة تيمبست و صلاحياته تكافئ صلاحيات الامبراطور"
   }
 ];
+// ==== بيانات النقابات الجديدة ====
+const guildsData = [
+  {
+    "name": "سيلفا",
+    "icon": "fa-solid fa-spider", // أيقونة من Font Awesome
+    "ruler": "ايتاشي",
+    "members": 150
+  },
+  {
+    "name": "قوتاي",
+    "icon": "fa-solid fa-leaf", // أيقونة من Font Awesome
+    "ruler": "ناغومو",
+    "members": 125
+  },
+  {
+    "name": "ايسبادا",
+    "icon": "fa-solid fa-skull-crossbones", // أيقونة من Font Awesome
+    "ruler": "دراغون",
+    "members": 110
+  },
+  {
+    "name": "الهوكاجي",
+    "icon": "fa-solid fa-fire", // أيقونة من Font Awesome
+    "ruler": "اوبيتو",
+    "members": 95
+  },
+  {
+    "name": "اليونكو",
+    "icon": "fa-solid fa-anchor", // أيقونة من Font Awesome
+    "ruler": "لوفي",
+    "members": 200
+  }
+];
