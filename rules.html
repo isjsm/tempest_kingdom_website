@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ميثاق المملكة - Tempest Kingdom</title>
     
-    <!-- ملفات CSS الأساسية -->
+    <!-- ملفات CSS -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <!-- ملف CSS خاص بصفحة القوانين -->
+    <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/rules.css">
 
+    <!-- مكتبة أيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- القائمة الجانبية وزر الفتح (مع تحديث الروابط ) -->
+    <!-- القائمة الجانبية (Sidebar ) مع روابط محدثة -->
     <nav class="sidebar" id="sidebar">
         <button class="close-btn" id="close-btn">&times;</button>
         <a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a>
@@ -24,13 +25,16 @@
         <a href="#"><i class="fa-solid fa-user-shield"></i> المسؤولين</a>
         <a href="#"><i class="fa-solid fa-chart-simple"></i> الاحصائيات</a>
     </nav>
-    <button class="open-btn" id="open-btn"><i class="fa-solid fa-bars"></i></button>
+
+    <!-- زر القائمة مع الكلاس المخصص لهذه الصفحة -->
+    <button class="open-btn rules-menu-btn" id="open-btn">
+        <i class="fa-solid fa-bars"></i>
+    </button>
 
     <!-- المحتوى الرئيسي للصفحة -->
-    <div class="main-content" id="main-content">
+    <main class="main-content" id="main-content">
         <div class="rules-container">
             
-            <!-- 1. العنوان الرئيسي -->
             <header class="rules-header">
                 <h1>مــيــثــاق مــمــلــكــة Tempest</h1>
                 <h2>الــقــانــون الأعــلــى</h2>
@@ -42,7 +46,6 @@
 
             <div class="divider">♢━━━━━⋗〔 📜 〕⋖━━━━━♢</div>
 
-            <!-- 2. قسم القوانين الأساسية -->
             <section class="rules-section">
                 <h3>◈ الــقــوانــيــن الأساســيــة ◈</h3>
                 <ol>
@@ -56,7 +59,6 @@
 
             <div class="divider">♢━━━━━⋗〔 📜 〕⋖━━━━━♢</div>
 
-            <!-- 3. قسم قوانين النظام العام -->
             <section class="rules-section">
                 <h3>◈ قــوانــيــن الــنــظــام الــعــام ◈</h3>
                 <ol start="6">
@@ -70,7 +72,6 @@
 
             <div class="divider">♢━━━━━⋗〔 ⚖️ 〕⋖━━━━━♢</div>
 
-            <!-- 4. قسم نظام العقوبات -->
             <section class="rules-section">
                 <h3>◈ نــظــام الــعــقــوبــات ◈</h3>
                 <p>مخالفة هذا الميثاق ستؤدي إلى تطبيق نظام العقوبات المتدرج بكل حزم:</p>
@@ -84,7 +85,6 @@
 
             <div class="divider">♢━━━━━⋗〔 📜 〕⋖━━━━━♢</div>
 
-            <!-- 5. الخاتمة -->
             <footer class="rules-footer">
                 <p>هذا الميثاق ليس لتقييد حريتك، بل لصياغة مملكة عظيمة تليق بنا جميعًا.  
 فلتكن Tempest منارة للنظام والاحترام.</p>
@@ -92,9 +92,9 @@
             </footer>
 
         </div>
-    </div>
+    </main>
 
-    <!-- نفس ملفات JavaScript -->
+    <!-- ملفات JavaScript -->
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
 
