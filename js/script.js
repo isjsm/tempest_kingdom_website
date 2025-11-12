@@ -1,28 +1,35 @@
 // script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const openBtn = document.getElementById('open-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('sidebar');
+    const body = document.body;
 
-// الحصول على العناصر من الصفحة
-const openBtn = document.getElementById('open-btn');
-const closeBtn = document.getElementById('close-btn');
-const sidebar = document.getElementById('sidebar');
-const mainContent = document.getElementById('main-content');
-const body = document.body;
+    // دالة لفتح القائمة
+    const openSidebar = () => {
+        sidebar.classList.add('open');
+        body.classList.add('sidebar-open');
+    };
 
-// عند الضغط على زر الفتح
-openBtn.addEventListener('click', () => {
-    sidebar.classList.add('open');
-    body.classList.add('sidebar-open');
-});
-
-// عند الضغط على زر الإغلاق
-closeBtn.addEventListener('click', () => {
-    sidebar.classList.remove('open');
-    body.classList.remove('sidebar-open');
-});
-
-// إغلاق القائمة عند الضغط على أي مكان في المحتوى الرئيسي
-mainContent.addEventListener('click', () => {
-    if (body.classList.contains('sidebar-open')) {
+    // دالة لإغلاق القائمة
+    const closeSidebar = () => {
         sidebar.classList.remove('open');
         body.classList.remove('sidebar-open');
-    }
+    };
+
+    // الأحداث
+    openBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // يمنع إغلاق القائمة فوراً
+        openSidebar();
+    });
+
+    closeBtn.addEventListener('click', closeSidebar);
+
+    // إغلاق القائمة عند الضغط في أي مكان خارجها
+    document.addEventListener('click', (e) => {
+        // تحقق إذا كانت القائمة مفتوحة والضغط لم يكن داخلها
+        if (sidebar.classList.contains('open') && !sidebar.contains(e.target)) {
+            closeSidebar();
+        }
+    });
 });
