@@ -1,0 +1,137 @@
+/* css/rules.css */
+
+.rules-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #1a1a1d;
+    border: 2px solid #FFD60A;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 0 30px rgba(255, 214, 10, 0.15);
+}
+
+/* تصميم العنوان الرئيسي */
+.rules-header {
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 214, 10, 0.3);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.rules-header h1 {
+    font-size: 2.5rem;
+    color: #FFD60A;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(255, 214, 10, 0.5);
+}
+
+.rules-header h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 5px 0 0 0;
+    font-weight: normal;
+}
+
+/* تصميم النص التقديمي */
+.intro-text {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #e0e0e0;
+    margin-bottom: 25px;
+}
+
+/* تصميم الفواصل الزخرفية */
+.divider {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #FFD60A;
+    margin: 40px 0;
+}
+
+/* تصميم أقسام القوانين */
+.rules-section {
+    margin-bottom: 30px;
+}
+
+.rules-section h3 {
+    font-size: 1.8rem;
+    color: #FFD60A;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* تصميم القوائم المرقمة (ol) وغير المرقمة (ul) */
+.rules-section ol, .rules-section ul {
+    padding-right: 20px; /* مسافة للترقيم */
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.rules-section li {
+    margin-bottom: 15px;
+    color: #dcdcdc;
+}
+
+.rules-section li strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* تصميم خاص بقائمة العقوبات */
+.punishments {
+    list-style: none; /* إزالة الترقيم الافتراضي */
+    padding-right: 0;
+}
+
+.punishments li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.punishments li i {
+    color: #FFD60A;
+    font-size: 1.3rem;
+}
+
+.note {
+    font-style: italic;
+    color: #aaa;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* تصميم الخاتمة */
+.rules-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 214, 10, 0.3);
+}
+
+.rules-footer p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.rules-footer span {
+    font-size: 1.2rem;
+    color: #FFD60A;
+    font-weight: bold;
+}
+
+/* تعديلات للجوال */
+@media (max-width: 600px) {
+    .rules-container {
+        padding: 20px;
+    }
+    .rules-header h1 {
+        font-size: 2rem;
+    }
+    .rules-header h2 {
+        font-size: 1.2rem;
+    }
+}
