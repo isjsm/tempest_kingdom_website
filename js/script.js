@@ -1,43 +1,9 @@
-// script.js
-document.addEventListener('DOMContentLoaded', () => {
-    const openBtn = document.getElementById('open-btn');
-    const closeBtn = document.getElementById('close-btn');
-    const sidebar = document.getElementById('sidebar');
-    const body = document.body;
+// js/script.js
+// هذا الملف يحتوي على كل الأكواد الوظيفية
 
-    // دالة لفتح القائمة
-    const openSidebar = () => {
-        sidebar.classList.add('open');
-        body.classList.add('sidebar-open');
-    };
-
-    // دالة لإغلاق القائمة
-    const closeSidebar = () => {
-        sidebar.classList.remove('open');
-        body.classList.remove('sidebar-open');
-    };
-
-    // الأحداث
-    openBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // يمنع إغلاق القائمة فوراً
-        openSidebar();
-    });
-
-    closeBtn.addEventListener('click', closeSidebar);
-
-    // إغلاق القائمة عند الضغط في أي مكان خارجها
-    document.addEventListener('click', (e) => {
-        // تحقق إذا كانت القائمة مفتوحة والضغط لم يكن داخلها
-        if (sidebar.classList.contains('open') && !sidebar.contains(e.target)) {
-            closeSidebar();
-        }
-    });
-});
-
-// script.js
-
-// ... (كود القائمة الجانبية السابق يبقى كما هو) ...
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', ( ) => {
+    
+    // --- وظائف القائمة الجانبية ---
     const openBtn = document.getElementById('open-btn');
     const closeBtn = document.getElementById('close-btn');
     const sidebar = document.getElementById('sidebar');
@@ -66,33 +32,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ==== الكود الجديد لجلب بيانات المؤسسين ====
+    // --- وظيفة تحميل بيانات المؤسسين ---
+    const loadFounders = () => {
+        const grid = document.getElementById('founders-grid');
+        if (!grid) return; // توقف إذا لم يتم العثور على العنصر
+
+        // foundersData يأتي من ملف js/data.js
+        if (foundersData && foundersData.length > 0) {
+            foundersData.forEach(founder => {
+                const cardHTML = `
+                    <div class="founder-card">
+                        <img src="${founder.image}" alt="${founder.name}" class="profile-img">
+                        <h3 class="title">${founder.title}</h3>
+                        <p class="name">${founder.name}</p>
+                        <p class="description">${founder.description}</p>
+                    </div>
+                `;
+                grid.innerHTML += cardHTML;
+            });
+        } else {
+            grid.innerHTML = "<p>لا توجد بيانات لعرضها.</p>";
+        }
+    };
+
+    // استدعاء الدالة لتحميل المؤسسين عند فتح الصفحة
     loadFounders();
 });
-
-async function loadFounders() {
-    try {
-        const response = await fetch('js/founders.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const founders = await response.json();
-        const grid = document.getElementById('founders-grid');
-
-        founders.forEach(founder => {
-            const cardHTML = `
-                <div class="founder-card">
-                    <img src="${founder.image}" alt="${founder.name}" class="profile-img">
-                    <h3 class="title">${founder.title}</h3>
-                    <p class="name">${founder.name}</p>
-                    <p class="description">${founder.description}</p>
-                </div>
-            `;
-            grid.innerHTML += cardHTML;
-        });
-    } catch (error) {
-        console.error("Could not load founders data:", error);
-        const grid = document.getElementById('founders-grid');
-        grid.innerHTML = "<p>عذراً، لم نتمكن من تحميل بيانات المؤسسين حالياً.</p>";
-    }
-}
