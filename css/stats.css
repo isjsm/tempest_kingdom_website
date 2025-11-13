@@ -1,0 +1,89 @@
+/* css/stats.css */
+
+.page-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: #FFD60A;
+    font-size: 2.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.page-header h1 i {
+    transform: scaleX(-1); /* لعكس أيقونة الأعمدة البيانية */
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+/* حاوية القائمة الكاملة */
+.stats-accordion {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* مسافة بين كل قسم إحصائيات */
+}
+
+/* تصميم كل قسم إحصائيات على حدة */
+.stat-item {
+    text-align: center;
+}
+
+/* رأس القسم الذي يتم النقر عليه */
+.stat-header {
+    cursor: pointer;
+}
+
+.stat-header i {
+    font-size: 1.8rem;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.stat-header h3 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin: 0;
+}
+
+.stat-header .hint {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* محتوى التفاصيل (مخفي بشكل افتراضي) */
+.stat-details {
+    max-height: 0; /* يبدأ مغلقًا */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.5s ease-out;
+    margin-top: 0;
+}
+
+/* عند إضافة كلاس 'open' يتم فتح المحتوى */
+.stat-item.open .stat-details {
+    max-height: 500px; /* ارتفاع كبير كافي للمحتوى */
+    margin-top: 25px; /* إضافة مسافة عند الفتح */
+}
+
+.stat-details h4 {
+    font-size: 1.3rem;
+    color: #FFD60A;
+    margin-bottom: 15px;
+}
+
+.details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #ddd;
+    font-size: 1.1rem;
+    line-height: 2;
+}
