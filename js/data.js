@@ -81,3 +81,52 @@ const achievementsData = [
     }
   }
 ];
+
+// ==== بيانات الإحصائيات الجديدة (جاهزة للتعبئة) ====
+const statsData = [
+  {
+    "front": {
+      "title": "إحصائيات الأعضاء",
+      "icon": "fa-solid fa-users-gear"
+    },
+    "back": {
+      "title": "تفاصيل الأعضاء",
+      "items": [
+        { "label": "إجمالي الأعضاء", "value": "550" },
+        { "label": "الأعضاء النشطين", "value": "50" },
+        { "label": "متوسط الأعضاء لكل نقابة", "value": "50" },
+        { "label": "أعلى نقابة من حيث العدد", "value": "100" }
+      ]
+    }
+  },
+  {
+    "front": {
+      "title": "إحصائيات التفاعل",
+      "icon": "fa-solid fa-comments"
+    },
+    "back": {
+      "title": "مؤشرات التفاعل",
+      "items": [
+        { "label": "متوسط الرسائل اليومية", "value": "700" },
+        { "label": "ساعات الذروة", "value": "8" },
+        { "label": "أكثر نقابة تفاعلاً", "value": "Seeky" },
+        { "label": "عدد الفعاليات الشهرية", "value": "150" }
+      ]
+    }
+  },
+  {
+    "front": {
+      "title": "إحصائيات إدارية",
+      "icon": "fa-solid fa-user-shield"
+    },
+    "back": {
+      "title": "بيانات الإدارة",
+      "items": [
+        { "label": "عدد المشرفين", "value": "20" },
+        { "label": "عدد القرارات الصادرة", "value": "50" },
+        { "label": "متوسط حل الشكاوى", "value": "20" },
+        { "label": "عدد الترقيات", "value": "10" }
+      ]
+    }
+  }
+];
