@@ -1,42 +1,74 @@
 /* css/officials.css */
+/* تم تحديثه بالكامل للتصميم الجديد والحركات */
 
-.tree-container {
-    width: 100%;
-    height: 70vh; /* ارتفاع كبير لإعطاء مساحة للشجرة */
-    min-height: 500px;
-    margin-top: 30px;
+.page-header {
+    margin-bottom: 20px; /* تقليل المسافة العلوية */
+    text-align: center;
 }
 
-/* تصميم عقد الشجرة (Nodes) */
+.page-header h1 {
+    color: #FFD60A;
+    font-size: 2.8rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 600px;
+    margin: 10px auto 0;
+}
+
+/* حاوية الشجرة لجعلها في المنتصف */
+.tree-container {
+    width: 100%;
+    height: 80vh; /* ارتفاع كبير لإعطاء مساحة للشجرة */
+    min-height: 600px;
+    margin-top: 20px;
+    display: flex; /* استخدام Flexbox للتوسيط */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* إخفاء أي أجزاء زائدة أثناء الرسم */
+}
+
+/* --- تصميم عناصر الشجرة (SVG) --- */
+
+/* تصميم عقد الشجرة (الدوائر والنصوص) */
 .node circle {
-    fill: #1a1a1a;
-    stroke: #FFD60A;
-    stroke-width: 3px;
+    fill: #181818; /* لون الدائرة من الداخل */
+    stroke: #FFD60A; /* لون الإطار الخارجي */
+    stroke-width: 2.5px;
     cursor: pointer;
     transition: fill 0.3s, transform 0.3s;
 }
 
 .node:hover circle {
-    fill: #FFD60A;
-    transform: scale(1.1);
+    fill: #FFD60A; /* تغيير اللون عند المرور */
+    transform: scale(1.15);
 }
 
 .node text {
-    font-family: 'Cairo', sans-serif; /* تأكد من استخدام نفس خط الموقع */
+    font-family: 'Cairo', sans-serif;
     font-size: 14px;
     fill: #ccc;
     text-anchor: middle;
-    transform: translateY(35px); /* إزاحة النص أسفل الدائرة */
+    transform: translateY(38px); /* إزاحة النص أسفل الدائرة */
+    pointer-events: none; /* لمنع النص من اعتراض أحداث الفأرة */
+    transition: fill 0.3s;
 }
 
-/* تصميم الخطوط الرابطة (Links) */
+.node:hover text {
+    fill: #fff; /* تغيير لون النص عند المرور */
+}
+
+/* تصميم الخطوط الرابطة (المنحنية) */
 .link {
     fill: none;
-    stroke: #555;
-    stroke-width: 2px;
+    stroke: #666; /* لون الخطوط */
+    stroke-width: 1.5px;
 }
 
-/* --- تصميم النافذة المنبثقة (Modal) --- */
+
+/* --- تصميم النافذة المنبثقة (Modal) - لا تغيير هنا --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -92,35 +124,8 @@
     transform: rotate(90deg);
 }
 
-/* تصميم محتوى البطاقة داخل الـ Modal */
-#modal-body {
-    text-align: center;
-}
-
-#modal-body img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #FFD60A;
-    margin-bottom: 20px;
-}
-
-#modal-body h2 {
-    font-size: 2rem;
-    color: #fff;
-    margin: 0 0 5px 0;
-}
-
-#modal-body h3 {
-    font-size: 1.3rem;
-    color: #FFD60A;
-    margin: 0 0 20px 0;
-    font-weight: normal;
-}
-
-#modal-body p {
-    font-size: 1.1rem;
-    color: #ccc;
-    line-height: 1.7;
-}
+#modal-body { text-align: center; }
+#modal-body img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid #FFD60A; margin-bottom: 20px; }
+#modal-body h2 { font-size: 2rem; color: #fff; margin: 0 0 5px 0; }
+#modal-body h3 { font-size: 1.3rem; color: #FFD60A; margin: 0 0 20px 0; font-weight: normal; }
+#modal-body p { font-size: 1.1rem; color: #ccc; line-height: 1.7; }
