@@ -48,48 +48,62 @@ document.addEventListener('DOMContentLoaded', () => {
                 achievement.back.items.forEach(item => { backItemsHTML += `<li>${item}</li>`; });
                 container.innerHTML += `<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><i class="${achievement.front.icon}"></i><h3>${achievement.front.title}</h3><span class="click-hint">(اضغط للقلب)</span></div><div class="flip-card-back"><h4>${achievement.back.title}</h4><ul>${backItemsHTML}</ul></div></div></div>`;
             });
-            document.querySelectorAll('.flip-card').forEach(card => { card.addEventListener('click', () => { card.classList.toggle('flipped'); }); });
+            // إضافة وظيفة القلب لكل البطاقات بعد إنشائها
+            document.querySelectorAll('#achievements-container .flip-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('flipped');
+                });
+            });
         } else { container.innerHTML = "<p>لا توجد إنجازات لعرضها حالياً.</p>"; }
     };
 
-    // --- 5. وظيفة تحميل بيانات الإحصائيات (Stats) - التصميم الجديد ---
+    // --- 5. وظيفة تحميل بيانات الإحصائيات (Stats) - بنظام قلب البطاقة ---
     const loadStats = () => {
-        const accordion = document.getElementById('stats-accordion');
-        if (!accordion) return;
+        const container = document.getElementById('stats-container');
+        if (!container) return; // توقف إذا لم نكن في صفحة الإحصائيات
 
         if (typeof statsData !== 'undefined' && statsData.length > 0) {
             statsData.forEach(stat => {
-                let detailsHTML = '';
-                stat.items.forEach(item => {
-                    detailsHTML += `<li>${item.label}: ${item.value}</li>`;
+                // إنشاء قائمة الإحصائيات لظهر البطاقة
+                let backItemsHTML = '';
+                stat.back.items.forEach(item => {
+                    backItemsHTML += `
+                        <li>
+                            <span class="label">${item.label}</span>
+                            <span class="value">${item.value || 'N/A'}</span>
+                        </li>
+                    `;
                 });
 
-                const itemHTML = `
-                    <div class="stat-item">
-                        <div class="stat-header">
-                            <i class="${stat.icon}"></i>
-                            <h3>${stat.title}</h3>
-                            <p class="hint">(اضغط لعرض التفاصيل)</p>
-                        </div>
-                        <div class="stat-details">
-                            <h4>${stat.detailsTitle}</h4>
-                            <ul class="details-list">
-                                ${detailsHTML}
-                            </ul>
+                const cardHTML = `
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="${stat.front.icon}"></i>
+                                <h3>${stat.front.title}</h3>
+                                <span class="click-hint">(اضغط لعرض التفاصيل)</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>${stat.back.title}</h4>
+                                <ul class="stats-list">
+                                    ${backItemsHTML}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 `;
-                accordion.innerHTML += itemHTML;
+                container.innerHTML += cardHTML;
             });
 
-            // إضافة وظيفة الفتح والإغلاق لكل قسم
-            document.querySelectorAll('.stat-header').forEach(header => {
-                header.addEventListener('click', () => {
-                    header.parentElement.classList.toggle('open');
+            // إضافة وظيفة القلب لكل البطاقات بعد إنشائها
+            document.querySelectorAll('#stats-container .flip-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('flipped');
                 });
             });
+
         } else {
-            accordion.innerHTML = "<p>لا توجد إحصائيات لعرضها حالياً.</p>";
+            container.innerHTML = "<p>لا توجد إحصائيات لعرضها حالياً.</p>";
         }
     };
 
