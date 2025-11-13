@@ -1,0 +1,126 @@
+/* css/achievements.css */
+
+.page-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: #FFD60A;
+    font-size: 2.8rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+.achievements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    perspective: 1000px; /* ضروري لتأثير القلب ثلاثي الأبعاد */
+}
+
+/* --- تصميم بطاقة القلب (Flip Card) --- */
+
+/* الحاوية الخارجية للبطاقة (تحدد الأبعاد) */
+.flip-card {
+    background-color: transparent;
+    height: 400px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* الحاوية الداخلية (تقوم بالدوران) */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d; /* يحافظ على الأبعاد الثلاثية */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+}
+
+/* عند إضافة كلاس 'flipped' بواسطة JS، يتم قلب البطاقة */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* وجه وظهر البطاقة */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* لإخفاء الوجه الخلفي عند الدوران */
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* تصميم وجه البطاقة (Front) */
+.flip-card-front {
+    background: linear-gradient(145deg, #2a2a2e, #1e1e21);
+    border: 1px solid #FFD60A;
+    color: white;
+}
+
+.flip-card-front i {
+    font-size: 4rem;
+    color: #FFD60A;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 214, 10, 0.5);
+}
+
+.flip-card-front h3 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.flip-card-front .click-hint {
+    position: absolute;
+    bottom: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* تصميم ظهر البطاقة (Back) */
+.flip-card-back {
+    background: #252528;
+    border: 1px solid #FFD60A;
+    color: white;
+    transform: rotateY(180deg); /* يبدأ مقلوبًا */
+    justify-content: flex-start; /* محاذاة المحتوى للأعلى */
+}
+
+.flip-card-back h4 {
+    font-size: 1.5rem;
+    color: #FFD60A;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 214, 10, 0.3);
+    width: 100%;
+}
+
+.flip-card-back ul {
+    list-style: none;
+    padding: 0;
+    text-align: right;
+    width: 100%;
+}
+
+.flip-card-back li {
+    font-size: 1rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+}
+
+.flip-card-back li:last-child {
+    border-bottom: none;
+}
