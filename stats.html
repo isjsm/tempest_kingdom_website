@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إحصائيات المملكة - Tempest Kingdom</title>
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/stats.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- القائمة الجانبية وزر الفتح (مع تحديث الروابط ) -->
+    <nav class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a>
+        <a href="guilds.html"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
+        <a href="rules.html"><i class="fa-solid fa-gavel"></i> القوانين</a>
+        <a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a>
+        <a href="stats.html" class="active"><i class="fa-solid fa-chart-simple"></i> الاحصائيات</a>
+    </nav>
+    <button class="open-btn" id="open-btn"><i class="fa-solid fa-bars"></i></button>
+
+    <!-- المحتوى الرئيسي للصفحة -->
+    <main class="main-content" id="main-content">
+        <header class="page-header">
+            <h1><i class="fa-solid fa-chart-simple"></i> إحصائيات المملكة</h1>
+            <p>الأرقام التي ترسم قصة نجاحنا. اضغط على أي بطاقة لعرض التفاصيل.</p>
+        </header>
+
+        <!-- سيتم ملء هذا القسم ببطاقات الإحصائيات بواسطة JavaScript -->
+        <div class="stats-container" id="stats-container"></div>
+    </main>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
