@@ -29,21 +29,21 @@ const guildsData = [
     "logo": "https://i.postimg.cc/1X7wzWz4/sekky-logo.jpg", // صورة البروفايل
     "symbol": "♦️", // الرمز بجانب الاسم
     "ruler": "كاكاتوري",
-    "members": +80
+    "members": 90
   },
   {
     "name": "REVEN",
     "logo": "https://i.postimg.cc/L8yQJgXQ/reven-logo.jpg", // صورة البروفايل
     "symbol": "🐉", // الرمز بجانب الاسم
     "ruler": "كيم ريفين",
-    "members": 38
+    "members": 40
   },
   {
     "name": "Viland",
     "logo": "https://i.postimg.cc/t4G2YvjH/viland-logo.jpg", // صورة البروفايل
     "symbol": "☾", // الرمز بجانب الاسم
     "ruler": "كيلوا",
-    "members": 24
+    "members": 30
   }
   // يمكنك إضافة المزيد من النقابات هنا بنفس الطريقة
 ];
