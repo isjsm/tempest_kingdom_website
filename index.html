@@ -3,58 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tempest Kingdom</title>
+    <title>مملكة Tempest</title>
     
-    <!-- ملفات CSS من مجلد /css -->
+    <!-- ملفات CSS -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/components.css"> <!-- سنضيف الستايل الجديد هنا -->
 
-    <!-- مكتبة أيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- القائمة الجانبية (Sidebar ) -->
+    <!-- القائمة الجانبية وزر الفتح -->
     <nav class="sidebar" id="sidebar">
         <button class="close-btn" id="close-btn">&times;</button>
+        <a href="index.html" class="active"><i class="fa-solid fa-house"></i> الرئيسية</a>
         <a href="guilds.html"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
-        <a href="achievements.html"><i class="fa-solid fa-trophy"></i> انجازاتنا</a>
+        <a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a>
         <a href="rules.html"><i class="fa-solid fa-gavel"></i> القوانين</a>
         <a href="#"><i class="fa-solid fa-user-shield"></i> المسؤولين</a>
-        <a href="stats.html"><i class="fa-solid fa-chart-simple"></i> الاحصائيات</a>
+        <a href="stats.html"><i class="fa-solid fa-chart-bar"></i> الاحصائيات</a>
     </nav>
-
-    <!-- زر فتح القائمة -->
-    <button class="open-btn" id="open-btn">
-        <i class="fa-solid fa-bars"></i>
-    </button>
+    <button class="open-btn" id="open-btn"><i class="fa-solid fa-bars"></i></button>
 
     <!-- المحتوى الرئيسي للصفحة -->
-    <div class="main-content" id="main-content">
-        <header>
+    <main class="main-content" id="main-content">
+        <!-- قسم الترحيب -->
+        <header class="main-header">
             <h1>Tempest Kingdom</h1>
-            <p>مملكتنا ليست مجرد مملكة بل هي مكان يجتمع فيه مختلف الاشخاص من هواة الانميات وقد تتشكل مجموعه بما يعرف حاليا ب اسم مملكة</p>
+            <p>مملكتنا ليست مجرد مملكه بل هي مكان يجتمع فيه مختلف الاشخاص من هواة الانميات وقد تشكل مجموعه بما يعرف حاليا ب اسم مملكه</p>
         </header>
 
-        <main>
-            <hr class="separator">
-            <section class="about">
-                <h2>مقدمة عن مملكة تيمبست <i class="fa-solid fa-wand-magic-sparkles"></i></h2>
-                <p>
-                    كان بناء مملكة Tempest <i class="fa-brands fa-d-and-d"></i> بإنشاء نقابة تدعى سيكي في 2025 تم انشائها من قبل إيتاتشي و بضعة مؤسسين من مملكة غريفين. تم استكمال و اصبحت مملكه سكاكيه بسبب غدر مملكة غريفين بهم و ب النهوض أتى الجنرال الحالي للمملكة و مؤسس للنظام الأول العريق.
-                </p>
-            </section>
+        <!-- قسم مقدمة عن المملكة -->
+        <section class="intro-section">
+            <h2><i class="fa-solid fa-sun"></i> مقدمة عن مملكة تيمبست</h2>
+            <p>
+                كان بدايه مملكه Tempest باشاده بلديه تدعى سيكي في 2025 تم انشائها من قبل إيتاشي و بجمع مؤسسين من مملكه هريفين ثم استقلو و اصبحو مملكه مستقله بسبب غدر مملكه هريفين بهم و ب النهوض لي الجيل الحالي للمملكه و مؤسس للنظم الاول العربي
+            </p>
+        </section>
 
-            <!-- قسم المؤسسين (سيتم ملؤه بواسطة JavaScript) -->
-            <section class="founders-section">
-                <hr class="separator">
-                <div class="founders-grid" id="founders-grid"></div>
-            </section>
-        </main>
-    </div>
+        <!-- قسم المؤسسين -->
+        <section class="founders-section">
+            <h2><i class="fa-solid fa-users-cog"></i> مؤسسو المملكة</h2>
+            <div class="founders-grid" id="founders-grid">
+                <!-- سيتم ملء هذا القسم بواسطة JavaScript -->
+            </div>
+        </section>
 
-    <!-- ملفات JavaScript من مجلد /js -->
+        <!-- ==== القسم الجديد: قلب المملكة ==== -->
+        <section class="heart-section">
+            <h2><i class="fa-solid fa-heart-pulse"></i> قلب المملكة</h2>
+            <div class="heart-guild-card">
+                <img src="https://i.postimg.cc/zXN55pPQ/sekky-logo.jpg" class="heart-guild-logo" alt="شعار نقابة سيكي">
+                <div class="heart-guild-info">
+                    <h3>T.M.P <span class="symbol">♦</span> Sekky</h3>
+                    <p>النقابة التي تمثل النواة الصلبة للمملكة، حيث بدأت القصة وتستمر الأسطورة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==== القسم الجديد: الصحيفة الرسمية ==== -->
+        <section class="newspaper-section">
+            <h2><i class="fa-solid fa-newspaper"></i> الصحيفة الرسمية</h2>
+            <p>انضم إلى قناتنا الرسمية على واتساب لتبقى على اطلاع بآخر الأخبار والفعاليات والإعلانات الهامة في المملكة.</p>
+            <a href="https://chat.whatsapp.com/J61h1vzKe9H1JQD1Czlx0N" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp"></i>
+                الانضمام إلى الصحيفة
+            </a>
+        </section>
+
+    </main>
+
+    <!-- ملفات JavaScript -->
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
 
