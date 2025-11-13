@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسؤولو المملكة - Tempest Kingdom</title>
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/officials.css"> <!-- ملف ستايل جديد للصفحة -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- القائمة الجانبية وزر الفتح -->
+    <nav class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a>
+        <a href="guilds.html"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
+        <a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a>
+        <a href="rules.html"><i class="fa-solid fa-gavel"></i> القوانين</a>
+        <a href="officials.html" class="active"><i class="fa-solid fa-user-shield"></i> المسؤولين</a>
+        <a href="stats.html"><i class="fa-solid fa-chart-bar"></i> الاحصائيات</a>
+    </nav>
+    <button class="open-btn" id="open-btn"><i class="fa-solid fa-bars"></i></button>
+
+    <!-- المحتوى الرئيسي للصفحة -->
+    <main class="main-content" id="main-content">
+        <header class="page-header">
+            <h1><i class="fa-solid fa-sitemap"></i> الهيكل القيادي للمملكة</h1>
+            <p>استكشف شجرة قيادة المملكة وتعرف على الأدوار والمسؤوليات. اضغط على أي مسؤول لعرض ملفه الكامل.</p>
+        </header>
+
+        <!-- الحاوية التي سيتم رسم الشجرة بداخلها -->
+        <div class="tree-container" id="tree-container">
+            <!-- سيتم إنشاء الشجرة هنا بواسطة D3.js -->
+        </div>
+    </main>
+
+    <!-- النافذة المنبثقة (Modal ) لعرض تفاصيل المسؤول (مخفية افتراضيًا) -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+            <div id="modal-body">
+                <!-- سيتم ملء التفاصيل هنا بواسطة JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- استدعاء مكتبة D3.js (ضروري جدًا) -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- ملفات JavaScript الخاصة بالموقع -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
