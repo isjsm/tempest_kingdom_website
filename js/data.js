@@ -28,8 +28,8 @@ const guildsData = [
     "name": "SEKKY",
     "logo": "https://i.postimg.cc/1X7wzWz4/sekky-logo.jpg", // صورة البروفايل
     "symbol": "♦️", // الرمز بجانب الاسم
-    "ruler": "ايتاتشي", // الحاكم (من المعلومات السابقة )
-    "members": 86
+    "ruler": "كاكاتوري",
+    "members": +80
   },
   {
     "name": "REVEN",
