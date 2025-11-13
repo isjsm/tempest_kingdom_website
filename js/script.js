@@ -107,8 +107,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- استدعاء الدوال لتحميل المحتوى الديناميكي ---
-    // سيتم تنفيذ الدالة فقط إذا كانت الصفحة تحتوي على العنصر المطلوب
+    
+    // --- 4. وظيفة تحميل بيانات الإنجازات (Achievements) ---
+    const loadAchievements = () => {
+        const container = document.getElementById('achievements-container');
+        // توقف إذا لم نكن في صفحة الإنجازات
+        if (!container) return; 
+
+        if (typeof achievementsData !== 'undefined' && achievementsData.length > 0) {
+            achievementsData.forEach(achievement => {
+                // إنشاء قائمة الإنجازات لظهر البطاقة
+                let backItemsHTML = '';
+                achievement.back.items.forEach(item => {
+                    backItemsHTML += `<li>${item}</li>`;
+                });
+
+                const cardHTML = `
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="${achievement.front.icon}"></i>
+                                <h3>${achievement.front.title}</h3>
+                                <span class="click-hint">(اضغط للقلب)</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>${achievement.back.title}</h4>
+                                <ul>
+                                    ${backItemsHTML}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            // إضافة وظيفة القلب لكل البطاقات بعد إنشائها
+            document.querySelectorAll('.flip-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('flipped');
+                });
+            });
+
+        } else {
+            container.innerHTML = "<p>لا توجد إنجازات لعرضها حالياً.</p>";
+        }
+    };
+
+
+    // --- استدعاء كل دوال التحميل ---
+    // سيتم تنفيذ كل دالة فقط إذا كانت الصفحة الحالية تحتوي على العنصر المطلوب
     loadFounders();
     loadGuilds();
+    loadAchievements();
+
 });
