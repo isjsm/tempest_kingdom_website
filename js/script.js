@@ -44,10 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. وظيفة تحميل بيانات المؤسسين (Founders) ---
     const loadFounders = () => {
         const grid = document.getElementById('founders-grid');
-        // توقف إذا لم نكن في الصفحة التي تحتوي على هذا العنصر
-        if (!grid) return; 
+        if (!grid) return; // توقف إذا لم نكن في الصفحة التي تحتوي على هذا العنصر
 
-        // foundersData يأتي من ملف js/data.js
         if (typeof foundersData !== 'undefined' && foundersData.length > 0) {
             foundersData.forEach(founder => {
                 const cardHTML = `
@@ -69,10 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. وظيفة تحميل بيانات النقابات (Guilds) ---
     const loadGuilds = () => {
         const container = document.getElementById('guilds-container');
-        // توقف إذا لم نكن في الصفحة التي تحتوي على هذا العنصر
-        if (!container) return; 
+        if (!container) return; // توقف إذا لم نكن في الصفحة التي تحتوي على هذا العنصر
 
-        // guildsData يأتي من ملف js/data.js
         if (typeof guildsData !== 'undefined' && guildsData.length > 0) {
             guildsData.forEach(guild => {
                 const cardHTML = `
@@ -111,12 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 4. وظيفة تحميل بيانات الإنجازات (Achievements) ---
     const loadAchievements = () => {
         const container = document.getElementById('achievements-container');
-        // توقف إذا لم نكن في صفحة الإنجازات
-        if (!container) return; 
+        if (!container) return; // توقف إذا لم نكن في صفحة الإنجازات
 
         if (typeof achievementsData !== 'undefined' && achievementsData.length > 0) {
             achievementsData.forEach(achievement => {
-                // إنشاء قائمة الإنجازات لظهر البطاقة
                 let backItemsHTML = '';
                 achievement.back.items.forEach(item => {
                     backItemsHTML += `<li>${item}</li>`;
@@ -142,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.innerHTML += cardHTML;
             });
 
-            // إضافة وظيفة القلب لكل البطاقات بعد إنشائها
             document.querySelectorAll('.flip-card').forEach(card => {
                 card.addEventListener('click', () => {
                     card.classList.toggle('flipped');
@@ -155,10 +148,60 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
+    // --- 5. وظيفة تحميل بيانات الإحصائيات (Stats) ---
+    const loadStats = () => {
+        const container = document.getElementById('stats-container');
+        if (!container) return; // توقف إذا لم نكن في صفحة الإحصائيات
+
+        if (typeof statsData !== 'undefined' && statsData.length > 0) {
+            statsData.forEach(stat => {
+                let backItemsHTML = '';
+                stat.back.items.forEach(item => {
+                    backItemsHTML += `
+                        <li>
+                            <span class="label">${item.label}</span>
+                            <span class="value">${item.value || 'N/A'}</span>
+                        </li>
+                    `;
+                });
+
+                const cardHTML = `
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="${stat.front.icon}"></i>
+                                <h3>${stat.front.title}</h3>
+                                <span class="click-hint">(اضغط لعرض التفاصيل)</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <h4>${stat.back.title}</h4>
+                                <ul class="stats-list">
+                                    ${backItemsHTML}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+
+            document.querySelectorAll('.flip-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('flipped');
+                });
+            });
+
+        } else {
+            container.innerHTML = "<p>لا توجد إحصائيات لعرضها حالياً.</p>";
+        }
+    };
+
+
     // --- استدعاء كل دوال التحميل ---
     // سيتم تنفيذ كل دالة فقط إذا كانت الصفحة الحالية تحتوي على العنصر المطلوب
     loadFounders();
     loadGuilds();
     loadAchievements();
+    loadStats();
 
 });
