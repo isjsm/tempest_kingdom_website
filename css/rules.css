@@ -1,168 +1,150 @@
 /* css/rules.css */
 
-/* --- 1. تصميم محتوى صفحة القوانين --- */
+/* تصميم زر القائمة الخاص بصفحة القوانين */
+.open-btn.rules-btn {
+    background-color: #FFF; /* لون أبيض */
+    color: var(--color-secondary);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+}
 
+/* حاوية القوانين */
 .rules-container {
-    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
     margin: 0 auto;
-    background-color: #1a1a1d;
-    border: 2px solid #FFD60A;
+}
+
+.rule-section {
+    background-color: var(--color-secondary);
     border-radius: 15px;
-    padding: 30px 40px;
-    box-shadow: 0 0 30px rgba(255, 214, 10, 0.15);
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-right: 5px solid var(--color-primary);
 }
 
-/* تصميم العنوان الرئيسي */
-.rules-header {
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 214, 10, 0.3);
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-.rules-header h1 {
-    font-size: 2.5rem;
-    color: #FFD60A;
-    margin: 0;
-    text-shadow: 0 0 10px rgba(255, 214, 10, 0.5);
-}
-
-.rules-header h2 {
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin: 5px 0 0 0;
-    font-weight: normal;
-}
-
-/* تصميم النص التقديمي */
-.intro-text {
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #e0e0e0;
-    margin-bottom: 25px;
-}
-
-/* تصميم الفواصل الزخرفية */
-.divider {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #FFD60A;
-    margin: 40px 0;
-}
-
-/* تصميم أقسام القوانين */
-.rules-section {
-    margin-bottom: 30px;
-}
-
-.rules-section h3 {
-    font-size: 1.8rem;
-    color: #FFD60A;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* تصميم القوائم المرقمة (ol) وغير المرقمة (ul) */
-.rules-section ol, .rules-section ul {
-    padding-right: 20px; /* مسافة للترقيم */
-    line-height: 1.8;
-    font-size: 1.1rem;
-}
-
-.rules-section li {
-    margin-bottom: 15px;
-    color: #dcdcdc;
-}
-
-.rules-section li strong {
-    color: #ffffff;
-    font-weight: 600;
-}
-
-/* تصميم خاص بقائمة العقوبات */
-.punishments {
-    list-style: none; /* إزالة الترقيم الافتراضي */
-    padding-right: 0;
-}
-
-.punishments li {
+.section-header {
     display: flex;
     align-items: center;
-    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 214, 10, 0.3);
+    padding-bottom: 10px;
 }
 
-.punishments li i {
-    color: #FFD60A;
-    font-size: 1.3rem;
+.section-header i {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-left: 15px;
 }
+
+.section-header h2 {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    margin: 0;
+    border-bottom: none; /* إلغاء الحدود المكررة */
+    text-align: right;
+}
+
+/* القانون الأعلى */
+.main-law {
+    border-right: 8px solid var(--color-accent);
+}
+
+.main-law p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #DDD;
+}
+
+/* قائمة القوانين */
+.rule-list {
+    list-style: none;
+    padding: 0;
+}
+
+.rule-list li {
+    margin-bottom: 15px;
+    padding-right: 20px;
+    position: relative;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #FFF;
+}
+
+.rule-list li::before {
+    content: "◈";
+    color: var(--color-primary);
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    font-size: 1.2rem;
+    top: 0;
+}
+
+.rule-list li strong {
+    color: var(--color-primary);
+}
+
+/* نظام العقوبات */
+.penalties {
+    border-right: 5px solid var(--color-accent);
+}
+
+.penalty-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.penalty-list li {
+    background-color: rgba(255, 214, 10, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.penalty-list li:nth-child(1) { color: #FFD60A; } /* إنذار */
+.penalty-list li:nth-child(2) { color: #FF6B6B; } /* طرد مؤقت */
+.penalty-list li:nth-child(3) { color: #FF0000; } /* طرد مؤبد */
 
 .note {
     font-style: italic;
-    color: #aaa;
+    color: #AAA;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* تذييل القانون */
+.footer-law {
     text-align: center;
-    margin-top: 20px;
+    border-right: 5px solid var(--color-primary);
 }
 
-/* تصميم الخاتمة */
-.rules-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 214, 10, 0.3);
+.footer-law p {
+    margin-bottom: 10px;
+    color: #DDD;
 }
 
-.rules-footer p {
-    font-size: 1.1rem;
-    color: #e0e0e0;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.rules-footer span {
-    font-size: 1.2rem;
-    color: #FFD60A;
+.signature {
     font-weight: bold;
+    color: var(--color-primary);
+    font-size: 1.1rem;
 }
 
-/* تعديلات للجوال */
-@media (max-width: 600px) {
-    .rules-container {
+/* التجاوب مع الجوال */
+@media (max-width: 768px) {
+    .rule-section {
         padding: 20px;
     }
-    .rules-header h1 {
-        font-size: 2rem;
+    .section-header h2 {
+        font-size: 1.4rem;
     }
-    .rules-header h2 {
-        font-size: 1.2rem;
-    }
-}
-
-
-/* --- 2. تصميم خاص لزر القائمة في صفحة القوانين --- */
-
-.rules-menu-btn {
-    background: linear-gradient(to bottom, #f0f0f0, #dcdcdc); /* تدرج لوني من الأبيض إلى الرمادي الفاتح */
-    color: #333; /* لون الأيقونة (الخطوط) بالأسود الداكن */
-    border-radius: 8px 0 0 8px; /* حواف دائرية من اليسار فقط */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل خفيف */
-    position: relative; /* ضروري لإضافة الخط الأصفر */
-}
-
-/* تأثير عند مرور الفأرة */
-.rules-menu-btn:hover {
-    background: #ffffff; /* يصبح أبيض بالكامل عند المرور */
-    transform: scale(1.1); /* نفس التأثير السابق */
-}
-
-/* إضافة الخط الأصفر العمودي بجانب الزر */
-.rules-menu-btn::after {
-    content: ''; /* ضروري لإنشاء العنصر الزائف */
-    position: absolute;
-    top: 0;
-    right: -4px; /* يضع الخط خارج حدود الزر إلى اليمين */
-    width: 4px; /* عرض الخط */
-    height: 100%; /* بنفس ارتفاع الزر */
-    background-color: #FFD60A; /* اللون الأصفر الذهبي */
-    border-radius: 0 2px 2px 0; /* حواف دائرية خفيفة للخط */
 }
