@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إحصائيات المملكة - Tempest Kingdom</title>
+    <title>مملكة Tempest - الإحصائيات</title>
     
-    <!-- ملفات CSS -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/stats.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- القائمة الجانبية وزر الفتح (مع إضافة صفحة المسؤولين ) -->
+    <!-- القائمة الجانبية وزر الفتح -->
     <nav class="sidebar" id="sidebar">
-        <button class="close-btn" id="close-btn">&times;</button>
+        <button class="close-btn" id="close-btn"><i class="fa-solid fa-xmark"></i></button>
         <a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a>
         <a href="guilds.html"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
-        <a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a>
         <a href="rules.html"><i class="fa-solid fa-gavel"></i> القوانين</a>
-        <a href="officials.html"><i class="fa-solid fa-user-shield"></i> المسؤولين</a>
+        <a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a>
         <a href="stats.html" class="active"><i class="fa-solid fa-chart-bar"></i> الاحصائيات</a>
     </nav>
     <button class="open-btn" id="open-btn"><i class="fa-solid fa-bars"></i></button>
@@ -34,16 +31,17 @@
             <p>الأرقام التي ترسم قصة نجاحنا. اضغط على أي بطاقة لعرض التفاصيل.</p>
         </header>
 
-        <!-- حاوية بطاقات الإحصائيات (السكربت سيبحث عن هذا الـ ID) -->
-        <div class="stats-container" id="stats-container">
-            <!-- سيتم ملء هذا القسم بالبطاقات بواسطة JavaScript -->
-        </div>
+        <section class="stats-section">
+            <div class="flip-cards-container" id="stats-container">
+                <!-- سيتم ملء بطاقات الإحصائيات هنا بواسطة JavaScript -->
+            </div>
+        </section>
     </main>
-
-    <!-- ملفات JavaScript -->
-    <!-- ... باقي محتوى الصفحة ... -->
+    
+    <!-- استدعاء السكربتات بالترتيب الصحيح -->
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
     <script src="js/stats.js"></script>
+
 </body>
 </html>
