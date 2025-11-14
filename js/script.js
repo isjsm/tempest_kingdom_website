@@ -1,5 +1,5 @@
 // js/script.js
-// هذا هو السكربت الرئيسي الذي يحتوي على الوظائف المشتركة فقط.
+// السكربت الرئيسي المطور: يدير الوظائف المشتركة ويستدعي سكربت الصفحة الحالية ديناميكيًا.
 
 /**
  * @module Sidebar
@@ -55,7 +55,46 @@ function activateFlipCards(containerSelector) {
     });
 }
 
-// تهيئة القائمة الجانبية عند تحميل أي صفحة
+/**
+ * @function loadPageScript
+ * @description يحدد الصفحة الحالية ويقوم بتحميل ملف الجافاسكربت الخاص بها ديناميكيًا.
+ */
+function loadPageScript() {
+    const path = window.location.pathname;
+    const page = path.split("/").pop().replace('.html', ''); // e.g., "index", "guilds"
+
+    let scriptSrc;
+    switch (page) {
+        case '':
+        case 'index':
+            scriptSrc = 'js/index.js';
+            break;
+        case 'guilds':
+            scriptSrc = 'js/guilds.js';
+            break;
+        case 'achievements':
+            scriptSrc = 'js/achievements.js';
+            break;
+        case 'stats':
+            scriptSrc = 'js/stats.js';
+            break;
+        // لا حاجة لـ officials.js لأن محتواه الآن في index.js
+        // صفحة القوانين (rules.html) لا تحتاج لسكربت خاص
+        default:
+            return; // لا تقم بتحميل أي سكربت إضافي
+    }
+
+    const script = document.createElement('script');
+    script.src = scriptSrc;
+    script.defer = true; // لضمان التنفيذ بعد تحميل الصفحة
+    document.body.appendChild(script);
+}
+
+// --- نقطة الانطلاق الرئيسية ---
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. تهيئة الوظائف المشتركة
     Sidebar.init();
+    
+    // 2. تحميل السكربت الخاص بالصفحة الحالية
+    loadPageScript();
 });
