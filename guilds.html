@@ -3,51 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نقابات المملكة - Tempest Kingdom</title>
+    <title>مملكة Tempest - النقابات</title>
     
-    <!-- نفس ملفات CSS الأساسية -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/components.css">
-    <!-- ملف CSS خاص بصفحة النقابات -->
-    <link rel="stylesheet" href="css/guilds.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- القائمة الجانبية وزر الفتح (نفس الكود من index.html ) -->
+    <!-- القائمة الجانبية وزر الفتح -->
     <nav class="sidebar" id="sidebar">
-        <button class="close-btn" id="close-btn">&times;</button>
+        <button class="close-btn" id="close-btn"><i class="fa-solid fa-xmark"></i></button>
         <a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a>
         <a href="guilds.html" class="active"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
-        <a href="achievements.html"><i class="fa-solid fa-trophy"></i> انجازاتنا</a>
         <a href="rules.html"><i class="fa-solid fa-gavel"></i> القوانين</a>
-        <a href="officials.html"><i class="fa-solid fa-user-shield"></i> المسؤولين</a>
-        <a href="stats.html"><i class="fa-solid fa-chart-simple"></i> الاحصائيات</a>
+        <a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a>
+        <a href="stats.html"><i class="fa-solid fa-chart-bar"></i> الاحصائيات</a>
     </nav>
     <button class="open-btn" id="open-btn"><i class="fa-solid fa-bars"></i></button>
 
     <!-- المحتوى الرئيسي للصفحة -->
-    <div class="main-content" id="main-content">
+    <main class="main-content" id="main-content">
         <header class="page-header">
             <h1><i class="fa-solid fa-users-line"></i> نقابات المملكة</h1>
-            <p>استكشف النقابات المختلفة التي تشكل قلب مملكة تيمبست.</p>
+            <p>القوة الضاربة لمملكة Tempest. تعرف على النقابات التي تشكل عمودنا الفقري.</p>
         </header>
 
-        <main>
-            <!-- سيتم ملء هذا القسم ببطاقات النقابات بواسطة JavaScript -->
-            <div class="guilds-container" id="guilds-container"></div>
-        </main>
-    </div>
-
-    <!-- نفس ملفات JavaScript -->
+        <section class="guilds-section">
+            <div class="guilds-container" id="guilds-container">
+                <!-- سيتم ملء بطاقات النقابات هنا بواسطة JavaScript -->
+            </div>
+        </section>
+    </main>
+    
+    <!-- استدعاء السكربتات بالترتيب الصحيح -->
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
     <script src="js/guilds.js"></script>
-</body>
-</html>
-
 
 </body>
 </html>
