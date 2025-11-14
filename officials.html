@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الهيكل القيادي - Tempest Kingdom</title>
+    <title>مسؤولو المملكة - Tempest Kingdom</title>
     
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/officials.css"> <!-- ملف ستايل الشجرة -->
+    <link rel="stylesheet" href="css/components.css"> <!-- ملف يحتوي على ستايل البطاقات القابلة للقلب -->
+    <link rel="stylesheet" href="css/officials.css"> <!-- ملف ستايل خاص بالصفحة -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
@@ -28,30 +29,28 @@
     <!-- المحتوى الرئيسي للصفحة -->
     <main class="main-content" id="main-content">
         <header class="page-header">
-            <h1><i class="fa-solid fa-sitemap"></i> الهيكل القيادي للمملكة</h1>
-            <p>استكشف شجرة قيادة المملكة وتعرف على الأدوار والمسؤوليات. اضغط على أي مسؤول لعرض ملفه الكامل.</p>
+            <h1><i class="fa-solid fa-user-shield"></i> مسؤولو المملكة</h1>
+            <p>تعرف على القادة الذين يشكلون حاضر ومستقبل مملكة تيمبست. اضغط على أي بطاقة لعرض التفاصيل.</p>
         </header>
 
-        <!-- الحاوية التي سيتم رسم الشجرة بداخلها -->
-        <div class="tree-container" id="tree-container">
-            <!-- سيتم إنشاء الشجرة هنا بواسطة D3.js -->
-        </div>
-    </main>
-
-    <!-- النافذة المنبثقة (Modal ) لعرض تفاصيل المسؤول -->
-    <div class="modal-overlay" id="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-btn" id="modal-close-btn">&times;</button>
-            <div id="modal-body">
-                <!-- سيتم ملء التفاصيل هنا بواسطة JavaScript -->
+        <!-- قسم حكام المملكة -->
+        <section class="officials-section">
+            <h2><i class="fa-solid fa-crown"></i> حكام المملكة</h2>
+            <div class="flip-cards-container" id="rulers-cards-container">
+                <!-- سيتم ملء بطاقات حكام المملكة هنا بواسطة JavaScript -->
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- استدعاء مكتبة D3.js (ضروري جدًا) -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+        <!-- قسم حكام النقابات -->
+        <section class="officials-section">
+            <h2><i class="fa-solid fa-flag"></i> حكام النقابات</h2>
+            <div class="flip-cards-container" id="guild-leaders-cards-container">
+                <!-- سيتم ملء بطاقات حكام النقابات هنا بواسطة JavaScript -->
+            </div>
+        </section>
+    </main>
     
-    <!-- ملفات JavaScript الخاصة بالموقع -->
+    <!-- لا حاجة لمكتبة D3.js الآن -->
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
 
