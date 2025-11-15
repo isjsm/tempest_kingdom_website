@@ -1,1 +1,61 @@
+/* css/base.css */
+
+/* متغيرات الألوان والخطوط لتوحيد التصميم */
+:root {
+    --primary-color: #f5c518; /* أصفر ذهبي */
+    --dark-bg: #141414;
+    --card-bg: #1f1f1f;
+    --text-color: #e5e5e5;
+    --text-muted: #aaa;
+    --border-color: #333;
+    --danger-color: #d9534f;
+}
+
+/* الأنماط العامة التي تطبق على كل الصفحات */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    text-align: right;
+}
+
+/* تنسيق المحتوى الرئيسي ليكون في المنتصف */
+.main-content {
+    padding: 80px 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* تنسيق العناوين الرئيسية للصفحات */
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.page-header h1 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.page-header p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* أنماط التجاوب الأساسية */
+@media (max-width: 767px) {
+    .main-content {
+        padding-top: 90px;
+    }
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    .page-header p {
+        font-size: 1rem;
+    }
+}
 
