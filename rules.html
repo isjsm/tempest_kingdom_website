@@ -5,19 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مملكة Tempest - القوانين</title>
     
+    <!-- 1. ملف الأنماط الأساسية المشتركة -->
     <link rel="stylesheet" href="css/base.css">
+    <!-- 2. ملف أنماط القائمة الجانبية المشتركة -->
     <link rel="stylesheet" href="css/sidebar.css">
+    <!-- 3. ملف الأنماط الخاص بصفحة القوانين فقط -->
     <link rel="stylesheet" href="css/rules.css">
 
+    <!-- مكتبة الأيقونات (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- القائمة الجانبية (Sidebar ) - الكود لم يتغير -->
+    <!-- القائمة الجانبية (Sidebar ) -->
     <nav class="sidebar" id="sidebar">
-        <!-- ... محتوى القائمة الجانبية ... -->
+        <div class="sidebar-header">
+            <h3>القائمة</h3>
+            <button class="close-btn" id="close-sidebar-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+            <li><a href="guilds.html"><i class="fa-solid fa-users-line"></i> نقاباتنا</a></li>
+            <li><a href="rules.html" class="active"><i class="fa-solid fa-gavel"></i> القوانين</a></li>
+            <li><a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a></li>
+            <li><a href="stats.html"><i class="fa-solid fa-chart-bar"></i> الاحصائيات</a></li>
+        </ul>
     </nav>
+
+    <!-- زر فتح القائمة -->
     <button class="open-btn" id="open-sidebar-btn"><i class="fa-solid fa-bars"></i></button>
+
+    <!-- طبقة التعتيم للخلفية -->
     <div class="overlay" id="overlay"></div>
 
     <!-- المحتوى الرئيسي للصفحة -->
@@ -37,7 +55,7 @@
                 <p>هذا الميثاق هو العهد الذي يربط جميع أفراد المملكة، من القائد إلى أحدث عضو. الالتزام به ليس خيارًا، بل هو أساس وجودك بيننا. كل قانون هنا وُضع لضمان بقاء مملكتنا قوية، محترمة، ومنظمة.</p>
             </section>
 
-            <!-- القوانين الأساسية (النسخة الكاملة والصحيحة) -->
+            <!-- القوانين الأساسية (النسخة الكاملة) -->
             <section class="rule-card basic-rules">
                 <div class="card-header">
                     <i class="fa-solid fa-scale-balanced"></i>
@@ -78,6 +96,7 @@
         </div>
     </main>
     
+    <!-- ملف الجافاسكريبت الموحد -->
     <script src="js/script.js"></script>
 
 </body>
