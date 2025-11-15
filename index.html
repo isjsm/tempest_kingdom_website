@@ -3,53 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tempest Kingdom</title>
-    <!-- ربط ملف الأنماط الرئيسي -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- ربط مكتبة Font Awesome للأيقونات -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>مملكة Tempest - الرئيسية</title>
+    
+    <!-- ملفات الأنماط المنفصلة -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/home.css"> <!-- ملف خاص بالصفحة الرئيسية -->
+
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- القائمة الجانبية (مخفية بشكل افتراضي ) -->
-    <nav id="sidebar" class="sidebar">
+    <!-- القائمة الجانبية (Sidebar ) -->
+    <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h3>القائمة</h3>
+            <button class="close-btn" id="close-sidebar-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <ul class="sidebar-links">
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+            <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
             <li><a href="guilds.html"><i class="fa-solid fa-users-line"></i> نقاباتنا</a></li>
-            <li><a href="rules.html" class="active"><i class="fa-solid fa-gavel"></i> القوانين</a></li>
+            <li><a href="rules.html"><i class="fa-solid fa-gavel"></i> القوانين</a></li>
             <li><a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a></li>
             <li><a href="stats.html"><i class="fa-solid fa-chart-bar"></i> الاحصائيات</a></li>
         </ul>
-        <div class="sidebar-footer">
-            <button id="close-sidebar" class="close-btn"><i class="fas fa-sign-out-alt"></i> خروج</button>
-        </div>
     </nav>
 
-    <!-- زر فتح القائمة الجانبية -->
-    <button id="open-sidebar" class="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </button>
+    <!-- زر فتح القائمة -->
+    <button class="open-btn" id="open-sidebar-btn"><i class="fa-solid fa-bars"></i></button>
+
+    <!-- طبقة التعتيم للخلفية -->
+    <div class="overlay" id="overlay"></div>
 
     <!-- المحتوى الرئيسي للصفحة -->
-    <main class="main-content">
-        <header>
-            <h1>Tempest Kingdom</h1>
-            <p>مملكتنا ليست مجرد مملكة بل هي مكان يجتمع فيه مختلف الأشخاص من هواة الأنيميات وقد تشكل مجموعة بما يعرف حالياً باسم مملكة.</p>
+    <main class="main-content" id="main-content">
+        
+        <!-- قسم الترحيب الرئيسي (Hero Section) -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Tempest Kingdom</h1>
+                <p class="hero-subtitle">مملكتنا ليست مجرد مكان، بل هي مجتمع يجمع مختلف الأشخاص من هواة الأنمي والثقافات المتنوعة.</p>
+            </div>
         </header>
 
-        <section class="intro-section">
-            <h2><i class="fas fa-cog"></i> مقدمة عن مملكة تيمبست</h2>
+        <!-- قسم المقدمة -->
+        <section class="home-section intro-card">
+            <div class="section-icon"><i class="fa-solid fa-star"></i></div>
+            <h2>مقدمة عن مملكة تيمبست</h2>
             <p>
-                كان بداية مملكة Tempest بإشادة بلدية تدعى سيكي في 2025 تم إنشاؤها من قبل إيتاشي و بجمع مؤسسين من مملكة هريفين ثم استقلوا وأصبحوا مملكة مستقلة بسبب غدر مملكة هريفين بهم وبالنهوض للجيل الحالي للمملكة ومؤسس النظم الأول العربي.
+                كانت بداية مملكة Tempest بإشادة بلدية تدعى سيكي في 2025. تم إنشاؤها من قبل إيتاشي وجمع مؤسسين من مملكة هريفين، ثم استقلوا وأصبحوا مملكة مستقلة بعد النهوض بالجيل الحالي للمملكة وتأسيس نظمها الأولى.
             </p>
         </section>
-    </main>
 
-    <!-- ربط ملف الجافاسكريبت -->
-    <script src="js/main.js"></script>
+        <!-- قسم الروابط السريعة -->
+        <section class="home-section quick-links">
+            <h2>استكشف المملكة</h2>
+            <div class="links-grid">
+                <a href="rules.html" class="link-card">
+                    <i class="fa-solid fa-gavel"></i>
+                    <h3>ميثاق المملكة</h3>
+                    <p>اطلع على القوانين التي تحكم مجتمعنا.</p>
+                </a>
+                <a href="guilds.html" class="link-card">
+                    <i class="fa-solid fa-users-line"></i>
+                    <h3>نقاباتنا</h3>
+                    <p>تعرف على النقابات المختلفة داخل المملكة.</p>
+                </a>
+                <a href="achievements.html" class="link-card">
+                    <i class="fa-solid fa-trophy"></i>
+                    <h3>سجل الإنجازات</h3>
+                    <p>شاهد أمجاد المملكة وإنجازات أعضائها.</p>
+                </a>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- استدعاء ملف الجافاسكريبت الموحد -->
+    <script src="js/script.js"></script>
 
 </body>
 </html>
