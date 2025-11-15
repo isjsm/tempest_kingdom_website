@@ -1,1 +1,101 @@
+/* css/rules.css */
+
+/* شبكة عرض القوانين */
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+/* تصميم بطاقات القوانين */
+.rule-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.rule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+.card-header i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+.card-header h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.rule-list, .penalty-list {
+    padding-right: 20px;
+}
+.rule-list li, .penalty-list li {
+    margin-bottom: 15px;
+}
+.rule-list strong {
+    color: var(--primary-color);
+}
+
+.penalties .penalty-level {
+    font-weight: bold;
+    color: var(--text-muted);
+    display: inline-block;
+    width: 120px;
+}
+.penalties .note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    background-color: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 5px;
+    border-right: 3px solid var(--danger-color);
+}
+
+.footer-law {
+    text-align: center;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+.footer-law:hover {
+    transform: none;
+}
+.footer-law .signature {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-top: 20px;
+    font-weight: bold;
+}
+.footer-law .signature i {
+    vertical-align: middle;
+}
+
+/* أنماط التجاوب الخاصة بصفحة القوانين */
+@media (min-width: 768px) {
+    .rules-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* جعل الأقسام الرئيسية تأخذ عرض كامل */
+    .main-law, .basic-rules, .footer-law {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 767px) {
+    .card-header h2 {
+        font-size: 1.4rem;
+    }
+}
 
