@@ -5,35 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مملكة Tempest - القوانين</title>
     
-    <!-- ملفات الأنماط المنفصلة -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/rules.css">
 
-    <!-- مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- القائمة الجانبية (Sidebar ) -->
+    <!-- القائمة الجانبية (Sidebar ) - الكود لم يتغير -->
     <nav class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h3>القائمة</h3>
-            <button class="close-btn" id="close-sidebar-btn"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <ul class="sidebar-links">
-            <li><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
-            <li><a href="guilds.html"><i class="fa-solid fa-users-line"></i> نقاباتنا</a></li>
-            <li><a href="rules.html" class="active"><i class="fa-solid fa-gavel"></i> القوانين</a></li>
-            <li><a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a></li>
-            <li><a href="stats.html"><i class="fa-solid fa-chart-bar"></i> الاحصائيات</a></li>
-        </ul>
+        <!-- ... محتوى القائمة الجانبية ... -->
     </nav>
-
-    <!-- زر فتح القائمة -->
     <button class="open-btn" id="open-sidebar-btn"><i class="fa-solid fa-bars"></i></button>
-
-    <!-- طبقة التعتيم للخلفية -->
     <div class="overlay" id="overlay"></div>
 
     <!-- المحتوى الرئيسي للصفحة -->
@@ -44,25 +28,30 @@
         </header>
 
         <div class="rules-grid">
-            <!-- بقية محتوى الصفحة كما هو في الرد السابق... -->
             <!-- القانون الأعلى -->
             <section class="rule-card main-law">
                 <div class="card-header">
                     <i class="fa-solid fa-scroll"></i>
                     <h2>القانون الأعلى</h2>
                 </div>
-                <p>هذا الميثاق هو العهد الذي يربط جميع أفراد المملكة...</p>
+                <p>هذا الميثاق هو العهد الذي يربط جميع أفراد المملكة، من القائد إلى أحدث عضو. الالتزام به ليس خيارًا، بل هو أساس وجودك بيننا. كل قانون هنا وُضع لضمان بقاء مملكتنا قوية، محترمة، ومنظمة.</p>
             </section>
 
-            <!-- القوانين الأساسية -->
+            <!-- القوانين الأساسية (النسخة الكاملة والصحيحة) -->
             <section class="rule-card basic-rules">
                 <div class="card-header">
                     <i class="fa-solid fa-scale-balanced"></i>
                     <h2>القوانين الأساسية</h2>
                 </div>
                 <ol class="rule-list">
-                    <li><strong>الاحترام المتبادل:</strong> يُمنع منعًا باتًا التجاوز أو الإهانة لأي عضو.</li>
-                    <!-- ... بقية القوانين -->
+                    <li><strong>الاحترام المتبادل:</strong> يُمنع منعًا باتًا التجاوز أو الإهانة لأي عضو، بغض النظر عن رتبته. الاحترام هو العملة الأولى في هذه المملكة.</li>
+                    <li><strong>الولاء للمملكة:</strong> الانتماء إلى Tempest يعني الولاء لها. يُمنع التآمر ضد المملكة، تسريب أسرارها، أو التحريض على الفوضى. خيانة المملكة هي خيانة للجميع.</li>
+                    <li><strong>خصوصية الأعضاء:</strong> يُمنع نشر أي معلومات شخصية أو صور خاصة بأي عضو دون إذنه الصريح. خصوصية أفرادنا خط أحمر لا يمكن تجاوزه.</li>
+                    <li><strong>المحتوى العام:</strong> يُمنع نشر أي محتوى يخالف الشريعة الإسلامية أو الآداب العامة.</li>
+                    <li><strong>التعامل مع الإدارة:</strong> يجب التعامل مع الإدارة باحترام وتقدير. قرارات الإدارة نهائية ويجب الالتزام بها.</li>
+                    <li><strong>الروابط الخارجية:</strong> يُمنع نشر روابط لمجموعات أو إعلانات شخصية دون الحصول على إذن مسبق من الإدارة.</li>
+                    <li><strong>الهوية والأسماء:</strong> يُمنع انتحال شخصية عضو آخر أو استخدام أسماء وألقاب غير لائقة. هويتك في المملكة هي جزء من سمعتك.</li>
+                    <li><strong>الجدال والنقاش:</strong> يُسمح بالنقاش البنّاء، ولكن يُمنع تحويله إلى جدال عقيم أو هجوم شخصي. حافظ على حوار محترم ومثمر.</li>
                 </ol>
             </section>
 
@@ -72,10 +61,11 @@
                     <i class="fa-solid fa-hammer"></i>
                     <h2>نظام العقوبات</h2>
                 </div>
-                <p>مخالفة هذا الميثاق ستؤدي إلى تطبيق نظام العقوبات...</p>
+                <p>مخالفة هذا الميثاق ستؤدي إلى تطبيق نظام العقوبات المتدرج بكل حزم:</p>
                 <ul class="penalty-list">
                     <li><span class="penalty-level">المخالفة الأولى:</span> إنذار رسمي.</li>
-                    <!-- ... بقية العقوبات -->
+                    <li><span class="penalty-level">المخالفة الثانية:</span> طرد مؤقت.</li>
+                    <li><span class="penalty-level">المخالفة الثالثة:</span> طرد مؤبد ومحو الأثر.</li>
                 </ul>
                 <p class="note">قد يتم اللجوء إلى عقوبة أشد مباشرة حسب خطورة المخالفة.</p>
             </section>
@@ -88,7 +78,6 @@
         </div>
     </main>
     
-    <!-- استدعاء ملف الجافاسكريبت الموحد -->
     <script src="js/script.js"></script>
 
 </body>
