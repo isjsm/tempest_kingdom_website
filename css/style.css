@@ -1,0 +1,147 @@
+/* إعدادات أساسية وتنسيق الخط */
+body {
+    background-color: #141414;
+    color: #e5e5e5;
+    font-family: 'Arial', sans-serif; /* يمكنك تغيير الخط حسب رغبتك */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* تنسيق العناوين الرئيسية */
+h1, h2 {
+    color: #f5c518; /* اللون الأصفر الذهبي */
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid #f5c518;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 1.5rem;
+}
+
+h2 .fa-cog {
+    margin-left: 10px;
+}
+
+/* تنسيق المحتوى الرئيسي */
+.main-content {
+    padding: 40px 20px;
+}
+
+header p, .intro-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+/* --- تنسيق القائمة الجانبية --- */
+
+/* زر فتح القائمة */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #f5c518;
+    color: #141414;
+    border: none;
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001; /* لضمان ظهوره فوق كل العناصر */
+}
+
+/* تصميم القائمة الجانبية */
+.sidebar {
+    height: 100%;
+    width: 280px;
+    position: fixed;
+    top: 0;
+    right: -300px; /* إخفاء القائمة خارج الشاشة */
+    background-color: #1f1f1f;
+    padding-top: 20px;
+    transition: right 0.4s ease-in-out; /* حركة سلسة عند الظهور والاختفاء */
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+/* حالة القائمة عندما تكون مفتوحة */
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar-header {
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar-header h3 {
+    color: #f5c518;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* تنسيق روابط التنقل */
+.sidebar-links {
+    list-style: none;
+    padding: 20px 0;
+    flex-grow: 1; /* لجعل الروابط تملأ المساحة المتاحة */
+}
+
+.sidebar-links li a {
+    display: block;
+    padding: 15px 25px;
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, padding-right 0.3s;
+    text-align: right;
+}
+
+.sidebar-links li a:hover {
+    background-color: #333;
+    padding-right: 30px; /* تأثير بسيط عند التمرير */
+}
+
+.sidebar-links li a i {
+    margin-left: 15px; /* مسافة بين الأيقونة والنص */
+    color: #f5c518;
+}
+
+/* تنسيق الجزء السفلي من القائمة (زر الخروج) */
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid #444;
+}
+
+.close-btn {
+    background-color: #d9534f; /* لون أحمر للخروج */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #c9302c;
+}
+
+.close-btn i {
+    margin-left: 8px;
+}
