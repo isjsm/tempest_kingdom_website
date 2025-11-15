@@ -2,7 +2,7 @@
 body {
     background-color: #141414;
     color: #e5e5e5;
-    font-family: 'Arial', sans-serif; /* يمكنك تغيير الخط حسب رغبتك */
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -16,12 +16,12 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3rem; /* حجم كبير للشاشات الكبيرة */
     margin-bottom: 1rem;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2rem; /* حجم كبير للشاشات الكبيرة */
     border-bottom: 2px solid #f5c518;
     display: inline-block;
     padding-bottom: 10px;
@@ -35,6 +35,7 @@ h2 .fa-cog {
 /* تنسيق المحتوى الرئيسي */
 .main-content {
     padding: 40px 20px;
+    transition: margin-right 0.4s ease-in-out; /* إضافة حركة للمحتوى عند فتح القائمة */
 }
 
 header p, .intro-section p {
@@ -58,7 +59,7 @@ header p, .intro-section p {
     height: 50px;
     font-size: 1.5rem;
     cursor: pointer;
-    z-index: 1001; /* لضمان ظهوره فوق كل العناصر */
+    z-index: 1001;
 }
 
 /* تصميم القائمة الجانبية */
@@ -70,10 +71,11 @@ header p, .intro-section p {
     right: -300px; /* إخفاء القائمة خارج الشاشة */
     background-color: #1f1f1f;
     padding-top: 20px;
-    transition: right 0.4s ease-in-out; /* حركة سلسة عند الظهور والاختفاء */
+    transition: right 0.4s ease-in-out;
     z-index: 1000;
     display: flex;
     flex-direction: column;
+    box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.5); /* إضافة ظل لتمييز القائمة */
 }
 
 /* حالة القائمة عندما تكون مفتوحة */
@@ -97,7 +99,8 @@ header p, .intro-section p {
 .sidebar-links {
     list-style: none;
     padding: 20px 0;
-    flex-grow: 1; /* لجعل الروابط تملأ المساحة المتاحة */
+    margin: 0;
+    flex-grow: 1;
 }
 
 .sidebar-links li a {
@@ -112,12 +115,14 @@ header p, .intro-section p {
 
 .sidebar-links li a:hover {
     background-color: #333;
-    padding-right: 30px; /* تأثير بسيط عند التمرير */
+    padding-right: 30px;
 }
 
 .sidebar-links li a i {
-    margin-left: 15px; /* مسافة بين الأيقونة والنص */
+    margin-left: 15px;
     color: #f5c518;
+    width: 20px; /* تحديد عرض ثابت للأيقونة لمحاذاة النصوص */
+    text-align: center;
 }
 
 /* تنسيق الجزء السفلي من القائمة (زر الخروج) */
@@ -127,7 +132,7 @@ header p, .intro-section p {
 }
 
 .close-btn {
-    background-color: #d9534f; /* لون أحمر للخروج */
+    background-color: #d9534f;
     color: white;
     border: none;
     border-radius: 5px;
@@ -144,4 +149,39 @@ header p, .intro-section p {
 
 .close-btn i {
     margin-left: 8px;
+}
+
+/* =================================================== */
+/* ===   أنماط الشاشات الصغيرة (Responsive CSS)   === */
+/* =================================================== */
+
+@media (max-width: 768px) {
+    /* تصغير حجم الخطوط في الجوال */
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    header p, .intro-section p {
+        font-size: 1rem;
+        padding: 0 10px; /* إضافة هوامش جانبية للنصوص */
+    }
+
+    /* تعديل القائمة الجانبية لتأخذ عرض الشاشة بالكامل */
+    .sidebar {
+        width: 100%;
+        right: -100%; /* إخفاء القائمة بنسبة 100% من عرض الشاشة */
+    }
+
+    .sidebar.open {
+        right: 0;
+    }
+
+    /* عند فتح القائمة، لا يتم دفع المحتوى الرئيسي */
+    .main-content.sidebar-open {
+        margin-right: 0;
+    }
 }
