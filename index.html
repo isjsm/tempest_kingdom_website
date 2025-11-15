@@ -3,86 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مملكة Tempest - الرئيسية</title>
-    
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/components.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Tempest Kingdom</title>
+    <!-- ربط ملف الأنماط الرئيسي -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- ربط مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <!-- القائمة الجانبية وزر الفتح -->
-    <nav class="sidebar" id="sidebar">
-        <button class="close-btn" id="close-btn"><i class="fa-solid fa-xmark"></i></button>
-        <a href="index.html" class="active"><i class="fa-solid fa-house"></i> الرئيسية</a>
-        <a href="guilds.html"><i class="fa-solid fa-users-line"></i> نقاباتنا</a>
-        <a href="rules.html"><i class="fa-solid fa-gavel"></i> القوانين</a>
-        <a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a>
-        <a href="stats.html"><i class="fa-solid fa-chart-bar"></i> الاحصائيات</a>
+    <!-- القائمة الجانبية (مخفية بشكل افتراضي ) -->
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>القائمة</h3>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="rules.html"><i class="fas fa-info-circle"></i> القوانين</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <button id="close-sidebar" class="close-btn"><i class="fas fa-sign-out-alt"></i> خروج</button>
+        </div>
     </nav>
-    <button class="open-btn" id="open-btn"><i class="fa-solid fa-bars"></i></button>
+
+    <!-- زر فتح القائمة الجانبية -->
+    <button id="open-sidebar" class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
 
     <!-- المحتوى الرئيسي للصفحة -->
-    <main class="main-content" id="main-content">
-        <header class="page-header">
+    <main class="main-content">
+        <header>
             <h1>Tempest Kingdom</h1>
-            <p>مملكتنا ليست مجرد مملكه بل هي مكان يجتمع فيه مختلف الاشخاص من هواة الانميات وقد تشكل مجموعه بما يعرف حاليا ب اسم مملكه</p>
+            <p>مملكتنا ليست مجرد مملكة بل هي مكان يجتمع فيه مختلف الأشخاص من هواة الأنيميات وقد تشكل مجموعة بما يعرف حالياً باسم مملكة.</p>
         </header>
 
         <section class="intro-section">
-            <h2>مقدمة عن مملكة تيمبست 🌪️</h2>
+            <h2><i class="fas fa-cog"></i> مقدمة عن مملكة تيمبست</h2>
             <p>
-                كان بدايه مملكه Tempest باشتباه نقابه تدعى سيكي في 2025 تم انشائها من قبل إيتاشي و بجمع مؤسسين من مملكه هريفين تم استكمال و اصبحت مملكه مستقله بسبب هدر مملكه هريفين بهروب الشوغن اي الجنرال الحالي للمملكه و مؤسس للنظم الاول العربي
+                كان بداية مملكة Tempest بإشادة بلدية تدعى سيكي في 2025 تم إنشاؤها من قبل إيتاشي و بجمع مؤسسين من مملكة هريفين ثم استقلوا وأصبحوا مملكة مستقلة بسبب غدر مملكة هريفين بهم وبالنهوض للجيل الحالي للمملكة ومؤسس النظم الأول العربي.
             </p>
         </section>
-
-        <!-- قسم حكام المملكة (المسؤولين ) -->
-        <section class="officials-section">
-            <h2><i class="fa-solid fa-crown"></i> حكام المملكة</h2>
-            <div class="flip-cards-container" id="rulers-cards-container">
-                <!-- سيتم ملء بطاقات حكام المملكة هنا بواسطة JavaScript -->
-            </div>
-        </section>
-
-        <!-- قسم حكام النقابات -->
-        <section class="officials-section">
-            <h2><i class="fa-solid fa-flag"></i> حكام النقابات</h2>
-            <div class="flip-cards-container" id="guild-leaders-cards-container">
-                <!-- سيتم ملء بطاقات حكام النقابات هنا بواسطة JavaScript -->
-            </div>
-        </section>
-
-        <!-- قسم قلب المملكة -->
-        <section class="heart-section">
-            <h2><i class="fa-solid fa-heart"></i> قلب المملكة</h2>
-            <div class="heart-card">
-                <div class="heart-content">
-                    <img src="https://i.postimg.cc/zXN55pPQ/sekky-logo.jpg" alt="نقابة سيكي" class="heart-logo">
-                    <h3>نقابة سيكي</h3>
-                    <p>النقابة التي انطلقت منها شرارة تأسيس مملكة Tempest. هي القلب النابض للمملكة ونقطة التجمع الأولى لأعضائها المؤسسين.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم الصحيفة الرسمية -->
-        <section class="newspaper-section">
-            <h2><i class="fa-solid fa-newspaper"></i> الصحيفة الرسمية للمملكة</h2>
-            <p class="newspaper-description">
-                نافذتك الحصرية على آخر الأخبار، القرارات الملكية، والفعاليات الكبرى. انضم الآن لتكون أول من يعلم بما يدور في أروقة المملكة.
-            </p>
-            <a href="https://chat.whatsapp.com/J61h1vzKe9H1JQD1Czlx0N" target="_blank" class="whatsapp-button">
-                <i class="fa-brands fa-whatsapp"></i> انضم للصحيفة الرسمية
-            </a>
-        </section>
-
     </main>
-    
-    <!-- استدعاء السكربتات بالترتيب الصحيح -->
-    <script src="js/data.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/index.js"></script>
+
+    <!-- ربط ملف الجافاسكريبت -->
+    <script src="js/main.js"></script>
 
 </body>
 </html>
