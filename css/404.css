@@ -1,0 +1,152 @@
+/* css/404.css */
+
+/* متغيرات الألوان لتوحيد الهوية */
+:root {
+    --primary-color: #f5c518; /* أصفر ذهبي */
+    --dark-bg: #141414;
+    --text-color: #e5e5e5;
+    --text-muted: #aaa;
+}
+
+/* إعدادات أساسية للصفحة */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: 'Tajawal', 'Segoe UI', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    overflow: hidden; /* لإخفاء أي عناصر قد تخرج عن الشاشة */
+}
+
+/* الحاوية الرئيسية لمحتوى الخطأ */
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* تصميم كود الخطأ 404 */
+.error-code {
+    font-size: 10rem; /* حجم ضخم للرقم */
+    font-weight: 900;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    text-shadow: 0 0 20px rgba(245, 197, 24, 0.3);
+}
+
+/* تصميم وتأثير حركة البوابة (الصفر المتحرك) */
+.portal-animation {
+    display: inline-block;
+    font-size: 8rem; /* أصغر قليلاً من الأرقام */
+    margin: 0 -20px;
+    animation: spin-and-pulse 4s infinite linear;
+}
+
+/* عنوان الخطأ */
+.error-title {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin: 20px 0 10px 0;
+    animation: fade-in-up 1s ease-out;
+}
+
+/* رسالة الخطأ */
+.error-message {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-bottom: 40px;
+    line-height: 1.8;
+    animation: fade-in-up 1s ease-out 0.3s;
+    animation-fill-mode: backwards; /* لتبدأ الحركة بعد 0.3 ثانية */
+}
+
+/* زر العودة للصفحة الرئيسية */
+.back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px; /* حواف دائرية بالكامل */
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fade-in-up 1s ease-out 0.6s;
+    animation-fill-mode: backwards;
+}
+
+.back-home-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(245, 197, 24, 0.2);
+}
+
+.back-home-btn i {
+    font-size: 1.3rem;
+    transition: transform 0.5s ease;
+}
+
+.back-home-btn:hover i {
+    transform: rotate(360deg); /* تأثير دوران للأيقونة عند التمرير */
+}
+
+/* --- التأثيرات الحركية (Animations) --- */
+
+/* حركة دوران ونبض للبوابة (الصفر) */
+@keyframes spin-and-pulse {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* حركة ظهور المحتوى من الأسفل للأعلى */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- أنماط التجاوب مع الشاشات (Responsive) --- */
+
+/* للشاشات الصغيرة (الجوال) */
+@media (max-width: 600px) {
+    .error-code {
+        font-size: 6rem;
+    }
+    .portal-animation {
+        font-size: 5rem;
+        margin: 0 -10px;
+    }
+    .error-title {
+        font-size: 1.8rem;
+    }
+    .error-message {
+        font-size: 1rem;
+    }
+    .back-home-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
