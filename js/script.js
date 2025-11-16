@@ -3,28 +3,27 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     /***************************************************
-     *  الجزء الأول: كود القائمة الجانبية (Sidebar) - مُحدّث
+     *  الجزء الأول: كود القائمة الجانبية (Sidebar)
      ***************************************************/
     
     const sidebar = document.getElementById('sidebar');
     const openBtn = document.getElementById('open-sidebar-btn');
     const closeBtn = document.getElementById('close-sidebar-btn');
     const overlay = document.getElementById('overlay');
-    const mainContent = document.getElementById('main-content'); // عنصر المحتوى الرئيسي
+    const mainContent = document.getElementById('main-content');
 
-    // التحقق من وجود جميع العناصر قبل تشغيل الكود
     if (sidebar && openBtn && closeBtn && overlay && mainContent) {
         const openSidebar = () => {
             sidebar.classList.add('open');
             overlay.classList.add('show');
-            mainContent.classList.add('shifted'); // دفع المحتوى
+            mainContent.classList.add('shifted');
             document.body.style.overflow = 'hidden';
         };
 
         const closeSidebar = () => {
             sidebar.classList.remove('open');
             overlay.classList.remove('show');
-            mainContent.classList.remove('shifted'); // إعادة المحتوى
+            mainContent.classList.remove('shifted');
             document.body.style.overflow = 'auto';
         };
 
@@ -72,12 +71,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /***************************************************
-     *  الجزء الثالث: كود تحميل الإنجازات (Achievements Loader)
+     *  الجزء الثالث: كود تحميل الإنجازات (بنمط الأكورديون)
      ***************************************************/
     
-    const achievementsGrid = document.getElementById('achievements-grid');
+    const achievementsContainer = document.getElementById('achievements-accordion');
 
-    if (achievementsGrid && typeof achievementCategories !== 'undefined') {
+    if (achievementsContainer && typeof achievementCategories !== 'undefined') {
         
         achievementCategories.forEach(category => {
             let achievementsHTML = '';
@@ -85,29 +84,36 @@ document.addEventListener('DOMContentLoaded', function () {
                 achievementsHTML += `<li><i class="${ach.icon}"></i><span>${ach.text}</span></li>`;
             });
 
-            const cardHTML = `
-                <div class="achievement-card" id="card-${category.id}">
-                    <div class="card-inner">
-                        <div class="card-face card-front">
-                            <div class="category-icon" style="color: ${category.categoryColor};">${category.categoryIcon}</div>
-                            <h2 class="category-title">${category.categoryTitle}</h2>
-                            <span class="click-hint">(اضغط لعرض الإنجازات)</span>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>${category.categoryTitle}</h3>
-                            <ul class="achievements-list">
-                                ${achievementsHTML}
-                            </ul>
-                        </div>
+            const accordionItemHTML = `
+                <div class="accordion-item" id="item-${category.id}">
+                    <button class="accordion-header">
+                        <span class="category-icon" style="color: ${category.categoryColor};">${category.categoryIcon}</span>
+                        <h2 class="category-title">${category.categoryTitle}</h2>
+                        <i class="fas fa-chevron-down arrow-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="achievements-list">
+                            ${achievementsHTML}
+                        </ul>
                     </div>
                 </div>
             `;
-            achievementsGrid.innerHTML += cardHTML;
+            achievementsContainer.innerHTML += accordionItemHTML;
         });
 
-        document.querySelectorAll('.achievement-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('flipped');
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                
+                // إغلاق جميع الأقسام الأخرى قبل فتح القسم الجديد
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    if (item !== accordionItem && item.classList.contains('open')) {
+                        item.classList.remove('open');
+                    }
+                });
+
+                // فتح أو إغلاق القسم الحالي
+                accordionItem.classList.toggle('open');
             });
         });
     }
