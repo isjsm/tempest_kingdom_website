@@ -5,6 +5,7 @@
     margin-bottom: 50px;
 }
 
+/* التصميم العام لبطاقات النقابات */
 .guild-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -13,7 +14,11 @@
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    overflow: hidden; /* لإخفاء العناصر الزائدة من التأثيرات */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px; /* ارتفاع أدنى للبطاقات الصغيرة */
 }
 
 .guild-card:hover {
@@ -26,6 +31,7 @@
     border-color: var(--primary-color);
     box-shadow: 0 0 25px rgba(245, 197, 24, 0.15);
     padding: 40px;
+    min-height: auto; /* إلغاء الارتفاع الأدنى لبطاقة العاصمة */
 }
 
 .capital-badge {
@@ -49,12 +55,8 @@
     margin-bottom: 20px;
     line-height: 1;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    /* الألوان أصبحت الآن تُطبق مباشرة في الـ HTML عبر JavaScript */
 }
-
-/* ألوان خاصة لكل شعار */
-.logo-sekky { color: #e74c3c; } /* أحمر */
-.logo-reven { color: #2ecc71; } /* أخضر */
-.logo-viland { color: #3498db; } /* أزرق */
 
 /* تصميم أسماء النقابات */
 .guild-name {
@@ -73,6 +75,7 @@
     color: var(--text-muted);
     max-width: 600px;
     margin: 10px auto 0;
+    flex-grow: 1; /* لجعل الوصف يأخذ المساحة المتبقية */
 }
 
 /* قسم النقابات الأخرى */
@@ -91,7 +94,23 @@
     font-size: 2rem;
 }
 
-/* أنماط التجاوب */
+/* في البطاقات الصغيرة، الوصف يكون مخفياً بشكل افتراضي ويظهر عند التمرير */
+.other-guilds .guild-card .guild-description {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+    overflow: hidden;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+.other-guilds .guild-card:hover .guild-description {
+    max-height: 100px; /* ارتفاع كافٍ لإظهار الوصف */
+    opacity: 1;
+}
+
+
+/* أنماط التجاوب (Responsive) */
 @media (max-width: 767px) {
     .guild-card.capital .guild-name {
         font-size: 2.2rem;
