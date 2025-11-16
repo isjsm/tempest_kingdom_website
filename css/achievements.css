@@ -1,16 +1,29 @@
-/* css/achievements.css */
+/* css/achievements.css (النسخة المحسّنة) */
 
+/* 1. شبكة العرض الرئيسية مع مسافات أكبر */
 .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    perspective: 1000px;
+    /* زيادة المسافة بين البطاقات بشكل ملحوظ */
+    gap: 40px; 
+    /* استخدام minmax لضمان حجم بطاقة مناسب وتجاوب أفضل */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    perspective: 1200px; /* زيادة العمق لتأثير قلب أكثر سلاسة */
+    padding: 20px 0; /* إضافة مساحة رأسية حول الشبكة */
 }
 
+/* 2. تصميم البطاقة القابلة للقلب */
 .achievement-card {
     background-color: transparent;
-    height: 350px;
+    height: 380px; /* زيادة ارتفاع البطاقة قليلاً */
     cursor: pointer;
+    border-radius: 15px; /* إضافة الحواف الدائرية هنا لتظهر مع الظل */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* تأثير رفع وظل عند التمرير فوق البطاقة */
+.achievement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 .card-inner {
@@ -18,69 +31,84 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s;
+    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); /* حركة قلب أكثر طبيعية */
     transform-style: preserve-3d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* ظل افتراضي خفيف للبطاقة */
+    border-radius: 15px;
 }
 
+/* عند إضافة كلاس 'flipped' يتم قلب البطاقة */
 .achievement-card.flipped .card-inner {
     transform: rotateY(180deg);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6); /* ظل أغمق قليلاً عند القلب */
 }
 
+/* 3. تصميم أوجه البطاقة (الأمامي والخلفي) */
 .card-face {
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
 }
 
 /* --- تصميم الوجه الأمامي --- */
+.card-front {
+    /* لا تغييرات كبيرة هنا، فقط تحسينات طفيفة */
+}
+
 .card-front .category-icon {
-    font-size: 5rem;
-    margin-bottom: 20px;
+    font-size: 5.5rem; /* تكبير الأيقونة قليلاً */
+    margin-bottom: 25px;
     line-height: 1;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* ظل أكثر وضوحًا */
 }
 
 .card-front .category-title {
-    font-size: 1.8rem;
+    font-size: 2rem; /* تكبير الخط */
     font-weight: bold;
     color: var(--text-color);
 }
 
 .card-front .click-hint {
     position: absolute;
-    bottom: 15px;
-    font-size: 0.8rem;
+    bottom: 20px;
+    font-size: 0.9rem;
     color: var(--text-muted);
-    opacity: 0.7;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+.achievement-card:hover .click-hint {
+    opacity: 1; /* إظهار التلميح بشكل أوضح عند التمرير */
 }
 
-/* --- تصميم الوجه الخلفي (الجديد) --- */
+/* --- تصميم الوجه الخلفي (المحسّن) --- */
 .card-back {
     transform: rotateY(180deg);
-    background-color: #2a2a2a;
-    justify-content: flex-start; /* محاذاة المحتوى للأعلى */
-    padding: 25px;
-    text-align: right; /* محاذاة النص لليمين */
+    background: linear-gradient(135deg, #2c2c2c, #1e1e1e); /* تدرج لوني خفيف للخلفية */
+    justify-content: flex-start;
+    padding: 30px;
+    text-align: right;
 }
 
 .card-back h3 {
     width: 100%;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: var(--primary-color);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .achievements-list {
@@ -88,20 +116,34 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    overflow-y: auto; /* إضافة شريط تمرير إذا كانت القائمة طويلة */
+    max-height: calc(100% - 80px); /* حساب الارتفاع المتاح ديناميكيًا */
+    overflow-y: auto; /* شريط تمرير تلقائي إذا زادت القائمة */
+    padding-left: 10px; /* مسافة لشريط التمرير */
+}
+
+/* تخصيص شكل شريط التمرير (اختياري ولكن يضيف لمسة احترافية) */
+.achievements-list::-webkit-scrollbar {
+    width: 6px;
+}
+.achievements-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.achievements-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
 }
 
 .achievements-list li {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 15px;
-    font-size: 1rem;
+    gap: 15px; /* زيادة المسافة بين الأيقونة والنص */
+    margin-bottom: 18px; /* زيادة المسافة بين عناصر القائمة */
+    font-size: 1.05rem; /* تكبير الخط قليلاً */
     color: var(--text-muted);
 }
 
 .achievements-list li i {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--primary-color);
-    margin-top: 5px; /* لضبط المحاذاة العمودية مع النص */
+    margin-top: 4px;
 }
