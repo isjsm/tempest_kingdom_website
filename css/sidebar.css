@@ -1,121 +1,155 @@
-/* css/sidebar.css */
+/* css/sidebar.css (النسخة الكاملة والنهائية) */
 
-/* تصميم القائمة الجانبية */
+:root {
+    --sidebar-width: 280px;
+    --sidebar-bg: #1e1e1e;
+    --sidebar-link-color: #ccc;
+    --sidebar-link-hover: #fff;
+    --sidebar-active-bg: var(--primary-color);
+}
+
+/* --- القائمة الجانبية نفسها --- */
 .sidebar {
-    height: 100%;
-    width: 280px;
     position: fixed;
     top: 0;
-    right: -100%;
-    background-color: var(--card-bg);
-    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 1001;
+    right: 0;
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: var(--sidebar-bg);
+    border-left: 1px solid var(--border-color);
+    transform: translateX(100%); /* تبدأ مخفية إلى اليمين */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1000;
     display: flex;
     flex-direction: column;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
 }
-.sidebar.open { right: 0; }
 
+/* --- رأس القائمة --- */
 .sidebar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 20px;
     border-bottom: 1px solid var(--border-color);
 }
+
 .sidebar-header h3 {
     margin: 0;
-    color: var(--primary-color);
-    font-size: 1.4rem;
+    color: var(--text-color);
+    font-size: 1.5rem;
 }
-.sidebar .close-btn {
+
+.close-btn {
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: var(--sidebar-link-color);
     font-size: 1.8rem;
     cursor: pointer;
     transition: color 0.3s, transform 0.3s;
 }
-.sidebar .close-btn:hover {
-    color: var(--primary-color);
+
+.close-btn:hover {
+    color: var(--sidebar-link-hover);
     transform: rotate(90deg);
 }
 
+/* --- روابط القائمة --- */
 .sidebar-links {
     list-style: none;
-    padding: 15px 0;
+    padding: 20px 0;
     margin: 0;
-    flex-grow: 1;
+    flex-grow: 1; /* يجعل الروابط تملأ المساحة المتاحة */
 }
-.sidebar-links a {
+
+.sidebar-links li a {
     display: flex;
     align-items: center;
     gap: 15px;
     padding: 15px 25px;
-    color: var(--text-color);
+    color: var(--sidebar-link-color);
     text-decoration: none;
     font-size: 1.1rem;
-    transition: background-color 0.3s, padding-right 0.3s;
-    border-right: 4px solid transparent;
+    transition: background-color 0.3s, color 0.3s;
 }
-.sidebar-links a:hover {
+
+.sidebar-links li a:hover {
     background-color: rgba(255, 255, 255, 0.05);
+    color: var(--sidebar-link-hover);
 }
-.sidebar-links a.active {
-    background-color: rgba(245, 197, 24, 0.1);
-    border-right-color: var(--primary-color);
-    color: var(--primary-color);
+
+.sidebar-links li a.active {
+    background-color: var(--sidebar-active-bg);
+    color: #111;
+    font-weight: bold;
 }
-.sidebar-links a i {
-    font-size: 1.2rem;
-    width: 25px;
+
+.sidebar-links li a i {
+    width: 20px; /* لتوحيد محاذاة الأيقونات */
     text-align: center;
 }
 
-/* زر فتح القائمة */
+/* --- زر فتح القائمة --- */
 .open-btn {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: var(--primary-color);
-    color: var(--dark-bg);
-    border: none;
-    border-radius: 8px;
     width: 50px;
     height: 50px;
+    background-color: var(--primary-color);
+    color: #111;
+    border: none;
+    border-radius: 10px;
     font-size: 1.5rem;
     cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.3s;
+    z-index: 998;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-.open-btn:hover { transform: scale(1.1); }
 
-/* طبقة التعتيم للخلفية */
+.open-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* --- طبقة التعتيم --- */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s, visibility 0.4s;
+    z-index: 999;
 }
+
+/* --- حالة الفتح (Open State) --- */
+.sidebar.open {
+    transform: translateX(0);
+}
+
 .overlay.show {
     opacity: 1;
     visibility: visible;
 }
 
-/* أنماط التجاوب للقائمة */
-@media (max-width: 767px) {
+/* --- دفع المحتوى الرئيسي عند فتح القائمة (الإصلاح الحاسم) --- */
+.main-content {
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.4s;
+}
+
+.main-content.shifted {
+    transform: translateX(calc(-1 * var(--sidebar-width)));
+    filter: blur(4px);
+}
+
+/* --- تجاوبية للشاشات الصغيرة --- */
+@media (max-width: 768px) {
     .open-btn {
         top: 15px;
         right: 15px;
-    }
-    .sidebar {
-        width: 100%;
+        width: 45px;
+        height: 45px;
     }
 }
-
