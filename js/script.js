@@ -1,9 +1,10 @@
-// js/script.js - (النسخة المدمجة والنهائية)
+// js/script.js - (النسخة المدمجة والكاملة)
 
 document.addEventListener('DOMContentLoaded', function () {
 
     /***************************************************
      *  الجزء الأول: كود القائمة الجانبية (Sidebar)
+     *  (يعمل في جميع الصفحات)
      ***************************************************/
     
     const sidebar = document.getElementById('sidebar');
@@ -37,12 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /***************************************************
      *  الجزء الثاني: كود تحميل بيانات النقابات (Guilds Loader)
+     *  (يعمل فقط في صفحة النقابات)
      ***************************************************/
 
     const capitalContainer = document.getElementById('capital-guild-container');
     const othersGrid = document.getElementById('other-guilds-grid');
 
-    // typeof guildsData !== 'undefined' يتأكد من أن ملف البيانات قد تم تحميله
     if (capitalContainer && othersGrid && typeof guildsData !== 'undefined') {
         guildsData.forEach(guild => {
             if (guild.isCapital) {
@@ -65,6 +66,50 @@ document.addEventListener('DOMContentLoaded', function () {
                 `;
                 othersGrid.innerHTML += guildCardHTML;
             }
+        });
+    }
+
+    /***************************************************
+     *  الجزء الثالث: كود تحميل الإنجازات (Achievements Loader)
+     *  (يعمل فقط في صفحة الانجازات)
+     ***************************************************/
+    
+    const achievementsGrid = document.getElementById('achievements-grid');
+
+    if (achievementsGrid && typeof achievementCategories !== 'undefined') {
+        
+        achievementCategories.forEach(category => {
+            let achievementsHTML = '';
+            category.achievements.forEach(ach => {
+                achievementsHTML += `<li><i class="${ach.icon}"></i><span>${ach.text}</span></li>`;
+            });
+
+            const cardHTML = `
+                <div class="achievement-card" id="card-${category.id}">
+                    <div class="card-inner">
+                        <!-- الوجه الأمامي -->
+                        <div class="card-face card-front">
+                            <div class="category-icon" style="color: ${category.categoryColor};">${category.categoryIcon}</div>
+                            <h2 class="category-title">${category.categoryTitle}</h2>
+                            <span class="click-hint">(اضغط لعرض الإنجازات)</span>
+                        </div>
+                        <!-- الوجه الخلفي -->
+                        <div class="card-face card-back">
+                            <h3>${category.categoryTitle}</h3>
+                            <ul class="achievements-list">
+                                ${achievementsHTML}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+            achievementsGrid.innerHTML += cardHTML;
+        });
+
+        document.querySelectorAll('.achievement-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
         });
     }
 });
