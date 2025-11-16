@@ -9,8 +9,8 @@ const achievementCategories = [
         achievements: [ // قائمة الإنجازات لهذه الفئة
             { icon: 'fa-solid fa-crown', text: 'وصول النقابة لما يزيد عن 7 مشرفين للنقابة' },
             { icon: 'fa-solid fa-scroll', text: 'تفاعل يومي يتجاوز 1000 رسالة' },
-            { icon: 'fa-solid fa-landmark', text: 'الوصول لما يزيد عن 90 عضو' }
-            { icon: 'fa-solid fa-landmark', text: 'اكتسابها لقب قلب العاصمة لانها اول نقابة في المملكة' }
+            { icon: 'fa-solid fa-landmark', text: 'الوصول لما يزيد عن 90 عضو' },
+            { icon: 'fa-solid fa-landmark', text: 'اكتسابها لقب قلب العاصمة لانها اول نقابة في المملكة' },
             { icon: 'fa-solid fa-landmark', text: 'احتلت المرتبة الاولى في النشر ضمن النقابات' }
         ]
     },
