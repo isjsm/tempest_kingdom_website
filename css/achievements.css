@@ -1,26 +1,26 @@
-/* css/achievements.css (النسخة المحسّنة) */
+/* css/achievements.css (النسخة النهائية - تخطيط عمودي) */
 
-/* 1. شبكة العرض الرئيسية مع مسافات أكبر */
+/* 1. شبكة العرض الرئيسية (الآن هي قائمة عمودية) */
 .achievements-grid {
-    display: grid;
-    /* زيادة المسافة بين البطاقات بشكل ملحوظ */
-    gap: 40px; 
-    /* استخدام minmax لضمان حجم بطاقة مناسب وتجاوب أفضل */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    perspective: 1200px; /* زيادة العمق لتأثير قلب أكثر سلاسة */
-    padding: 20px 0; /* إضافة مساحة رأسية حول الشبكة */
+    display: flex; /* استخدام Flexbox للتحكم في التخطيط العمودي */
+    flex-direction: column; /* جعل العناصر تترتب بشكل عمودي */
+    align-items: center; /* توسيط البطاقات أفقيًا في الصفحة */
+    gap: 35px; /* المسافة الرأسية بين كل بطاقة والأخرى */
+    padding: 20px 0;
+    perspective: 1200px;
 }
 
 /* 2. تصميم البطاقة القابلة للقلب */
 .achievement-card {
     background-color: transparent;
-    height: 380px; /* زيادة ارتفاع البطاقة قليلاً */
+    width: 100%; /* جعل البطاقة تأخذ عرض الحاوية */
+    max-width: 700px; /* تحديد عرض أقصى للبطاقات لتبدو جيدة على الشاشات الكبيرة */
+    height: 380px;
     cursor: pointer;
-    border-radius: 15px; /* إضافة الحواف الدائرية هنا لتظهر مع الظل */
+    border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* تأثير رفع وظل عند التمرير فوق البطاقة */
 .achievement-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
@@ -31,16 +31,15 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); /* حركة قلب أكثر طبيعية */
+    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform-style: preserve-3d;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* ظل افتراضي خفيف للبطاقة */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
 }
 
-/* عند إضافة كلاس 'flipped' يتم قلب البطاقة */
 .achievement-card.flipped .card-inner {
     transform: rotateY(180deg);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6); /* ظل أغمق قليلاً عند القلب */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
 }
 
 /* 3. تصميم أوجه البطاقة (الأمامي والخلفي) */
@@ -50,7 +49,6 @@
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,19 +60,15 @@
 }
 
 /* --- تصميم الوجه الأمامي --- */
-.card-front {
-    /* لا تغييرات كبيرة هنا، فقط تحسينات طفيفة */
-}
-
 .card-front .category-icon {
-    font-size: 5.5rem; /* تكبير الأيقونة قليلاً */
+    font-size: 5.5rem;
     margin-bottom: 25px;
     line-height: 1;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* ظل أكثر وضوحًا */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .card-front .category-title {
-    font-size: 2rem; /* تكبير الخط */
+    font-size: 2rem;
     font-weight: bold;
     color: var(--text-color);
 }
@@ -88,13 +82,13 @@
     transition: opacity 0.3s;
 }
 .achievement-card:hover .click-hint {
-    opacity: 1; /* إظهار التلميح بشكل أوضح عند التمرير */
+    opacity: 1;
 }
 
-/* --- تصميم الوجه الخلفي (المحسّن) --- */
+/* --- تصميم الوجه الخلفي --- */
 .card-back {
     transform: rotateY(180deg);
-    background: linear-gradient(135deg, #2c2c2c, #1e1e1e); /* تدرج لوني خفيف للخلفية */
+    background: linear-gradient(135deg, #2c2c2c, #1e1e1e);
     justify-content: flex-start;
     padding: 30px;
     text-align: right;
@@ -116,12 +110,11 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    max-height: calc(100% - 80px); /* حساب الارتفاع المتاح ديناميكيًا */
-    overflow-y: auto; /* شريط تمرير تلقائي إذا زادت القائمة */
-    padding-left: 10px; /* مسافة لشريط التمرير */
+    max-height: calc(100% - 80px);
+    overflow-y: auto;
+    padding-left: 10px;
 }
 
-/* تخصيص شكل شريط التمرير (اختياري ولكن يضيف لمسة احترافية) */
 .achievements-list::-webkit-scrollbar {
     width: 6px;
 }
@@ -136,9 +129,9 @@
 .achievements-list li {
     display: flex;
     align-items: flex-start;
-    gap: 15px; /* زيادة المسافة بين الأيقونة والنص */
-    margin-bottom: 18px; /* زيادة المسافة بين عناصر القائمة */
-    font-size: 1.05rem; /* تكبير الخط قليلاً */
+    gap: 15px;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
     color: var(--text-muted);
 }
 
@@ -146,4 +139,14 @@
     font-size: 1.1rem;
     color: var(--primary-color);
     margin-top: 4px;
+}
+
+/* تعديل بسيط للشاشات الصغيرة جدًا */
+@media (max-width: 400px) {
+    .card-front .category-title {
+        font-size: 1.6rem;
+    }
+    .card-front .category-icon {
+        font-size: 4.5rem;
+    }
 }
