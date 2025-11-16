@@ -1,21 +1,25 @@
-/* css/achievements.css (النسخة النهائية - تخطيط عمودي) */
+/* css/achievements.css (النسخة النهائية - تخطيط عمودي مصغّر) */
 
-/* 1. شبكة العرض الرئيسية (الآن هي قائمة عمودية) */
+/* 1. حاوية العرض الرئيسية */
 .achievements-grid {
-    display: flex; /* استخدام Flexbox للتحكم في التخطيط العمودي */
-    flex-direction: column; /* جعل العناصر تترتب بشكل عمودي */
-    align-items: center; /* توسيط البطاقات أفقيًا في الصفحة */
-    gap: 35px; /* المسافة الرأسية بين كل بطاقة والأخرى */
-    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* المسافة الرأسية بين البطاقات */
+    /* إضافة هوامش حول الحاوية بأكملها لفصلها عن حواف الصفحة */
+    padding: 20px; 
     perspective: 1200px;
 }
 
-/* 2. تصميم البطاقة القابلة للقلب */
+/* 2. تصميم البطاقة (تم تصغيرها) */
 .achievement-card {
     background-color: transparent;
-    width: 100%; /* جعل البطاقة تأخذ عرض الحاوية */
-    max-width: 700px; /* تحديد عرض أقصى للبطاقات لتبدو جيدة على الشاشات الكبيرة */
-    height: 380px;
+    /* تحديد عرض ثابت للبطاقة لجعلها أصغر */
+    width: 95%; 
+    /* تحديد عرض أقصى للبطاقات لتبدو جيدة على الشاشات الكبيرة */
+    max-width: 550px; 
+    /* تقليل ارتفاع البطاقة لتتناسب مع العرض الجديد */
+    height: 320px; 
     cursor: pointer;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -42,7 +46,7 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* 3. تصميم أوجه البطاقة (الأمامي والخلفي) */
+/* 3. تصميم أوجه البطاقة (تم تصغير الخطوط والأيقونات) */
 .card-face {
     position: absolute;
     width: 100%;
@@ -53,7 +57,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 25px;
+    padding: 20px;
     border-radius: 15px;
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
@@ -61,28 +65,24 @@
 
 /* --- تصميم الوجه الأمامي --- */
 .card-front .category-icon {
-    font-size: 5.5rem;
-    margin-bottom: 25px;
+    font-size: 4.5rem; /* تصغير الأيقونة */
+    margin-bottom: 20px;
     line-height: 1;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .card-front .category-title {
-    font-size: 2rem;
+    font-size: 1.6rem; /* تصغير العنوان */
     font-weight: bold;
     color: var(--text-color);
 }
 
 .card-front .click-hint {
     position: absolute;
-    bottom: 20px;
-    font-size: 0.9rem;
+    bottom: 15px;
+    font-size: 0.8rem;
     color: var(--text-muted);
     opacity: 0.8;
-    transition: opacity 0.3s;
-}
-.achievement-card:hover .click-hint {
-    opacity: 1;
 }
 
 /* --- تصميم الوجه الخلفي --- */
@@ -90,7 +90,7 @@
     transform: rotateY(180deg);
     background: linear-gradient(135deg, #2c2c2c, #1e1e1e);
     justify-content: flex-start;
-    padding: 30px;
+    padding: 25px;
     text-align: right;
 }
 
@@ -98,11 +98,11 @@
     width: 100%;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: var(--primary-color);
-    font-size: 1.6rem;
+    font-size: 1.4rem; /* تصغير العنوان الخلفي */
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 15px;
+    padding-bottom: 12px;
 }
 
 .achievements-list {
@@ -110,16 +110,13 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    max-height: calc(100% - 80px);
+    max-height: calc(100% - 70px);
     overflow-y: auto;
     padding-left: 10px;
 }
 
 .achievements-list::-webkit-scrollbar {
-    width: 6px;
-}
-.achievements-list::-webkit-scrollbar-track {
-    background: transparent;
+    width: 5px;
 }
 .achievements-list::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);
@@ -129,24 +126,14 @@
 .achievements-list li {
     display: flex;
     align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 18px;
-    font-size: 1.05rem;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 1rem; /* تصغير خط الإنجازات */
     color: var(--text-muted);
 }
 
 .achievements-list li i {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--primary-color);
     margin-top: 4px;
-}
-
-/* تعديل بسيط للشاشات الصغيرة جدًا */
-@media (max-width: 400px) {
-    .card-front .category-title {
-        font-size: 1.6rem;
-    }
-    .card-front .category-icon {
-        font-size: 4.5rem;
-    }
 }
