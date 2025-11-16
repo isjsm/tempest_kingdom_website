@@ -1,27 +1,30 @@
-// js/script.js - (النسخة المدمجة والكاملة)
+// js/script.js (النسخة الكاملة والنهائية)
 
 document.addEventListener('DOMContentLoaded', function () {
 
     /***************************************************
-     *  الجزء الأول: كود القائمة الجانبية (Sidebar)
-     *  (يعمل في جميع الصفحات)
+     *  الجزء الأول: كود القائمة الجانبية (Sidebar) - مُحدّث
      ***************************************************/
     
     const sidebar = document.getElementById('sidebar');
     const openBtn = document.getElementById('open-sidebar-btn');
     const closeBtn = document.getElementById('close-sidebar-btn');
     const overlay = document.getElementById('overlay');
+    const mainContent = document.getElementById('main-content'); // عنصر المحتوى الرئيسي
 
-    if (sidebar && openBtn && closeBtn && overlay) {
+    // التحقق من وجود جميع العناصر قبل تشغيل الكود
+    if (sidebar && openBtn && closeBtn && overlay && mainContent) {
         const openSidebar = () => {
             sidebar.classList.add('open');
             overlay.classList.add('show');
+            mainContent.classList.add('shifted'); // دفع المحتوى
             document.body.style.overflow = 'hidden';
         };
 
         const closeSidebar = () => {
             sidebar.classList.remove('open');
             overlay.classList.remove('show');
+            mainContent.classList.remove('shifted'); // إعادة المحتوى
             document.body.style.overflow = 'auto';
         };
 
@@ -38,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /***************************************************
      *  الجزء الثاني: كود تحميل بيانات النقابات (Guilds Loader)
-     *  (يعمل فقط في صفحة النقابات)
      ***************************************************/
 
     const capitalContainer = document.getElementById('capital-guild-container');
@@ -71,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /***************************************************
      *  الجزء الثالث: كود تحميل الإنجازات (Achievements Loader)
-     *  (يعمل فقط في صفحة الانجازات)
      ***************************************************/
     
     const achievementsGrid = document.getElementById('achievements-grid');
@@ -87,13 +88,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const cardHTML = `
                 <div class="achievement-card" id="card-${category.id}">
                     <div class="card-inner">
-                        <!-- الوجه الأمامي -->
                         <div class="card-face card-front">
                             <div class="category-icon" style="color: ${category.categoryColor};">${category.categoryIcon}</div>
                             <h2 class="category-title">${category.categoryTitle}</h2>
                             <span class="click-hint">(اضغط لعرض الإنجازات)</span>
                         </div>
-                        <!-- الوجه الخلفي -->
                         <div class="card-face card-back">
                             <h3>${category.categoryTitle}</h3>
                             <ul class="achievements-list">
