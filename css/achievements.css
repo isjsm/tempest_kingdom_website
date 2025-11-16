@@ -1,25 +1,23 @@
-/* css/achievements.css (النسخة النهائية - تخطيط عمودي مصغّر) */
+/* css/achievements.css (النسخة الكاملة والنهائية - تخطيط عمودي مصغّر ومتباعد) */
 
 /* 1. حاوية العرض الرئيسية */
 .achievements-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px; /* المسافة الرأسية بين البطاقات */
-    /* إضافة هوامش حول الحاوية بأكملها لفصلها عن حواف الصفحة */
-    padding: 20px; 
+    gap: 35px; /* المسافة الرأسية بين البطاقات */
+    padding: 40px 20px; /* هوامش حول الحاوية لفصلها عن الحواف */
+    width: 100%;
+    box-sizing: border-box; /* لضمان أن padding لا يسبب مشاكل في العرض */
     perspective: 1200px;
 }
 
 /* 2. تصميم البطاقة (تم تصغيرها) */
 .achievement-card {
     background-color: transparent;
-    /* تحديد عرض ثابت للبطاقة لجعلها أصغر */
-    width: 95%; 
-    /* تحديد عرض أقصى للبطاقات لتبدو جيدة على الشاشات الكبيرة */
-    max-width: 550px; 
-    /* تقليل ارتفاع البطاقة لتتناسب مع العرض الجديد */
-    height: 320px; 
+    width: 100%;
+    max-width: 600px; /* عرض أقصى معقول للبطاقات */
+    height: 320px; /* ارتفاع أصغر للبطاقة */
     cursor: pointer;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -46,7 +44,7 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* 3. تصميم أوجه البطاقة (تم تصغير الخطوط والأيقونات) */
+/* 3. تصميم أوجه البطاقة (تم تصغير المحتوى) */
 .card-face {
     position: absolute;
     width: 100%;
@@ -65,14 +63,14 @@
 
 /* --- تصميم الوجه الأمامي --- */
 .card-front .category-icon {
-    font-size: 4.5rem; /* تصغير الأيقونة */
+    font-size: 4.5rem;
     margin-bottom: 20px;
     line-height: 1;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .card-front .category-title {
-    font-size: 1.6rem; /* تصغير العنوان */
+    font-size: 1.6rem;
     font-weight: bold;
     color: var(--text-color);
 }
@@ -100,7 +98,7 @@
     margin-top: 0;
     margin-bottom: 20px;
     color: var(--primary-color);
-    font-size: 1.4rem; /* تصغير العنوان الخلفي */
+    font-size: 1.4rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 12px;
 }
@@ -110,7 +108,7 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    max-height: calc(100% - 70px);
+    max-height: calc(100% - 75px); /* حساب الارتفاع المتاح */
     overflow-y: auto;
     padding-left: 10px;
 }
@@ -128,7 +126,7 @@
     align-items: flex-start;
     gap: 12px;
     margin-bottom: 15px;
-    font-size: 1rem; /* تصغير خط الإنجازات */
+    font-size: 1rem;
     color: var(--text-muted);
 }
 
