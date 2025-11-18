@@ -1,4 +1,4 @@
-// js/script.js (النسخة الكاملة والمُصلَحة)
+// js/script.js (النسخة الكاملة والنهائية)
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -71,11 +71,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /***************************************************
-     *  الجزء الثالث: كود تحميل الإنجازات (بنمط الأكورديون) - مُصلَح
+     *  الجزء الثالث: كود تحميل الإنجازات (يعتمد على ملفه الخاص)
      ***************************************************/
     
     const achievementsContainer = document.getElementById('achievements-accordion');
 
+    // التحقق من وجود الحاوية ومتغير البيانات achievementCategories
     if (achievementsContainer && typeof achievementCategories !== 'undefined') {
         
         achievementCategories.forEach(category => {
@@ -84,11 +85,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 achievementsHTML += `<li><i class="${ach.icon}"></i><span>${ach.text}</span></li>`;
             });
 
-            // بناء كود HTML الكامل لقسم الأكورديون (النسخة المُصلَحة)
+            // التحقق إذا كانت الأيقونة نصًا عاديًا أم كلاس Font Awesome
+            const iconHTML = category.categoryIcon.startsWith('fa-') ? `<i class="${category.categoryIcon}"></i>` : category.categoryIcon;
+
             const accordionItemHTML = `
                 <div class="accordion-item" id="item-${category.id}">
                     <button class="accordion-header">
-                        <span class="category-icon" style="color: ${category.categoryColor};"><i class="${category.categoryIcon}"></i></span>
+                        <span class="category-icon" style="color: ${category.categoryColor};">${iconHTML}</span>
                         <h2 class="category-title">${category.categoryTitle}</h2>
                         <i class="fas fa-chevron-down arrow-icon"></i>
                     </button>
@@ -102,16 +105,19 @@ document.addEventListener('DOMContentLoaded', function () {
             achievementsContainer.innerHTML += accordionItemHTML;
         });
 
+        // إضافة وظيفة الفتح والإغلاق للأكورديون
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
                 const accordionItem = header.parentElement;
                 
+                // إغلاق الأقسام الأخرى قبل فتح القسم الجديد
                 document.querySelectorAll('.accordion-item').forEach(item => {
                     if (item !== accordionItem && item.classList.contains('open')) {
                         item.classList.remove('open');
                     }
                 });
 
+                // فتح أو إغلاق القسم الحالي
                 accordionItem.classList.toggle('open');
             });
         });
