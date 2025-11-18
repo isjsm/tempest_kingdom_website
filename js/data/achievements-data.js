@@ -9,9 +9,9 @@ const achievementCategories = [
         achievements: [ // قائمة الإنجازات لهذه الفئة
             { icon: 'fa-solid fa-crown', text: 'وصول النقابة لما يزيد عن 7 مشرفين للنقابة' },
             { icon: 'fa-solid fa-scroll', text: 'تفاعل يومي يتجاوز 1000 رسالة' },
-            { icon: 'fa-solid fa-landmark', text: 'الوصول لما يزيد عن 90 عضو' },
-            { icon: 'fa-solid fa-landmark', text: 'اكتسابها لقب قلب العاصمة لانها اول نقابة في المملكة' },
-            { icon: 'fa-solid fa-landmark', text: 'احتلت المرتبة الاولى في النشر ضمن النقابات' }
+            { icon: 'fa-solid fa-users', text: 'الوصول لما يزيد عن 90 عضو' }, // تغيير الأيقونة لتناسب المحتوى
+            { icon: 'fa-solid fa-landmark', text: 'اكتسابها لقب قلب العاصمة لأنها أول نقابة في المملكة' },
+            { icon: 'fa-solid fa-chart-line', text: 'احتلت المرتبة الأولى في النشر ضمن النقابات' } // تغيير الأيقونة لتناسب المحتوى
         ]
     },
     {
@@ -35,17 +35,5 @@ const achievementCategories = [
             { icon: 'fa-solid fa-lightbulb', text: 'اكتشاف مصدر طاقة جديد للمملكة.' },
             { icon: 'fa-solid fa-map-location-dot', text: 'رسم خريطة كاملة للأراضي المجهولة.' }
         ]
-    },
-    {
-        id: 'general-achievements',
-        categoryTitle: 'إنجازات عامة',
-        categoryIcon: 'fa-solid fa-star',
-        categoryColor: '#f5c518',
-        achievements: [
-            { icon: 'fa-solid fa-users', text: 'الوصول إلى 1000 عضو نشط في المملكة.' },
-            { icon: 'fa-solid fa-handshake-angle', text: 'عقد تحالف استراتيجي مع مملكة "نور".' },
-            { icon: 'fa-solid fa-calendar-check', text: 'إتمام عام كامل من السلام والازدهار.' }
-        ]
     }
-    // يمكنك إضافة فئات جديدة هنا
-];
+]; // <-- تم إضافة قوس الإغلاق والفاصلة المنقوطة
