@@ -1,4 +1,4 @@
-// js/script.js (النسخة الكاملة والنهائية)
+// js/script.js (النسخة الكاملة والمُصلَحة)
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /***************************************************
-     *  الجزء الثالث: كود تحميل الإنجازات (بنمط الأكورديون)
+     *  الجزء الثالث: كود تحميل الإنجازات (بنمط الأكورديون) - مُصلَح
      ***************************************************/
     
     const achievementsContainer = document.getElementById('achievements-accordion');
@@ -84,10 +84,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 achievementsHTML += `<li><i class="${ach.icon}"></i><span>${ach.text}</span></li>`;
             });
 
+            // بناء كود HTML الكامل لقسم الأكورديون (النسخة المُصلَحة)
             const accordionItemHTML = `
                 <div class="accordion-item" id="item-${category.id}">
                     <button class="accordion-header">
-                        <span class="category-icon" style="color: ${category.categoryColor};">${category.categoryIcon}</span>
+                        <span class="category-icon" style="color: ${category.categoryColor};"><i class="${category.categoryIcon}"></i></span>
                         <h2 class="category-title">${category.categoryTitle}</h2>
                         <i class="fas fa-chevron-down arrow-icon"></i>
                     </button>
@@ -105,14 +106,12 @@ document.addEventListener('DOMContentLoaded', function () {
             header.addEventListener('click', () => {
                 const accordionItem = header.parentElement;
                 
-                // إغلاق جميع الأقسام الأخرى قبل فتح القسم الجديد
                 document.querySelectorAll('.accordion-item').forEach(item => {
                     if (item !== accordionItem && item.classList.contains('open')) {
                         item.classList.remove('open');
                     }
                 });
 
-                // فتح أو إغلاق القسم الحالي
                 accordionItem.classList.toggle('open');
             });
         });
