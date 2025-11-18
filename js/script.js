@@ -181,5 +181,36 @@ document.addEventListener('DOMContentLoaded', function () {
     // =============================================================================
     // == نهاية القسم الرابع: تحميل الإحصائيات (Stats Loader)
     // =============================================================================
+// =============================================================================
+// == بداية القسم الخامس: تحميل فروع واتساب (Branches Loader)
+// == (يعمل فقط في صفحة branches.html)
+// =============================================================================
 
+const branchesContainer = document.getElementById('branches-container');
+
+// التحقق من وجود حاوية الفروع وملف البيانات الخاص بها
+if (branchesContainer && typeof branchesData !== 'undefined') {
+    
+    branchesData.forEach(branch => {
+        const branchCardHTML = `
+            <div class="branch-card ${branch.isPrimary ? 'primary' : ''}">
+                <div class="branch-header">
+                    <i class="branch-icon ${branch.icon}"></i>
+                    <h2 class="branch-name">${branch.name}</h2>
+                </div>
+                <p class="branch-description">${branch.description}</p>
+                <a href="${branch.joinLink}" class="join-button" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>انضم الآن</span>
+                </a>
+            </div>
+        `;
+        branchesContainer.innerHTML += branchCardHTML;
+    });
+}
+
+// =============================================================================
+// == نهاية القسم الخامس: تحميل فروع واتساب (Branches Loader)
+// =============================================================================
+    
 }); // <-- نهاية الحدث 'DOMContentLoaded'
