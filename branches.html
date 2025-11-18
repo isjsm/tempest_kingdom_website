@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مملكة Tempest - فروعنا</title>
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/branches.css"> <!-- ملف خاص بصفحة الفروع -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- القائمة الجانبية (Sidebar ) -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>القائمة</h3>
+            <button class="close-btn" id="close-sidebar-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+            <li><a href="guilds.html"><i class="fa-solid fa-users-line"></i> نقاباتنا</a></li>
+            <li><a href="rules.html"><i class="fa-solid fa-gavel"></i> القوانين</a></li>
+            <li><a href="achievements.html"><i class="fa-solid fa-trophy"></i> الانجازات</a></li>
+            <li><a href="stats.html"><i class="fa-solid fa-chart-bar"></i> الاحصائيات</a></li>
+            <li><a href="branches.html" class="active"><i class="fa-brands fa-whatsapp"></i> فروعنا</a></li>
+        </ul>
+    </nav>
+
+    <button class="open-btn" id="open-sidebar-btn"><i class="fa-solid fa-bars"></i></button>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- المحتوى الرئيسي للصفحة -->
+    <main class="main-content" id="main-content">
+        <header class="page-header">
+            <h1><i class="fa-brands fa-whatsapp"></i> فروع المملكة على واتساب</h1>
+            <p>انضم إلى مجتمعاتنا المتخصصة وكن جزءًا من النقاش.</p>
+        </header>
+
+        <!-- حاوية فارغة سيتم ملؤها ببطاقات الفروع عبر JS -->
+        <div id="branches-container" class="branches-container"></div>
+    </main>
+    
+    <!-- استدعاء السكربتات -->
+    <script src="js/data/branches-data.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
