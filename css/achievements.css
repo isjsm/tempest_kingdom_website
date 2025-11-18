@@ -1,0 +1,120 @@
+/* css/achievements.css (النسخة الكاملة والمُحسَّنة) */
+
+/* 1. حاوية الأكورديون الرئيسية */
+.achievements-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* تقليل المسافة بين الأقسام لجعلها متراصة أكثر */
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* 2. تصميم قسم الأكورديون الواحد */
+.accordion-item {
+    border: 1px solid var(--border-color);
+    border-radius: 12px; /* حواف أقل دائرية لمظهر أكثر حدة */
+    background-color: var(--card-bg);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* ظل خفيف ثابت */
+}
+
+/* تأثير رفع عند التمرير */
+.accordion-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: #555;
+}
+
+/* تغييرات عند فتح القسم */
+.accordion-item.open {
+    background-color: #2a2a2a;
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* 3. تصميم رأس الأكورديون (الجزء الذي يتم النقر عليه) */
+.accordion-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: right;
+    color: var(--text-color);
+}
+
+.accordion-header .category-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item:hover .category-icon {
+    transform: scale(1.1); /* تكبير الأيقونة عند التمرير */
+}
+
+.accordion-header .category-title {
+    font-size: 1.4rem;
+    font-weight: 600; /* خط أعرض قليلاً */
+    flex-grow: 1;
+    color: var(--text-color);
+}
+
+/* 4. تصميم أيقونة السهم */
+.accordion-header .arrow-icon {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.accordion-item.open .arrow-icon {
+    transform: rotate(180deg);
+    color: var(--primary-color);
+}
+
+/* 5. تصميم المحتوى المنسدل (قائمة الإنجازات) */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.accordion-item.open .accordion-content {
+    max-height: 500px; /* ارتفاع كافٍ للمحتوى */
+    padding: 0 20px 20px 20px;
+}
+
+.achievements-list {
+    list-style: none;
+    padding: 20px 0 0 0;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+}
+
+.achievements-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6; /* زيادة تباعد الأسطر لتحسين القراءة */
+}
+
+.achievements-list li:last-child {
+    margin-bottom: 0;
+}
+
+.achievements-list li i {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-top: 6px;
+}
