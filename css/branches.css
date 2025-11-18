@@ -1,0 +1,87 @@
+/* css/branches.css */
+
+.branches-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.branch-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.branch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* تمييز الفرع الرئيسي */
+.branch-card.primary {
+    border-left: 5px solid var(--primary-color);
+    background: linear-gradient(90deg, var(--card-bg) 95%, rgba(241, 196, 15, 0.1) 100%);
+}
+
+.branch-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.branch-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.branch-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.branch-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding-right: 40px; /* مسافة بادئة للوصف */
+}
+
+/* تصميم الزر الاحترافي */
+.join-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background-color: #25D366; /* لون واتساب الأخضر */
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px; /* حواف دائرية بالكامل */
+    border: none;
+    cursor: pointer;
+    align-self: flex-start; /* محاذاة الزر إلى البداية */
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+}
+
+.join-button i {
+    font-size: 1.3rem;
+}
+
+.join-button:hover {
+    background-color: #128C7E; /* لون واتساب الداكن */
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
